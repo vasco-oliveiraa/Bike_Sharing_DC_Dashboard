@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import pickle
-from pycaret.regression import *
+import pycaret
 
 def Prediction(display=True):
     
@@ -142,8 +142,8 @@ def Prediction(display=True):
     
     st.dataframe(data)
     
-    # with open('bike_model.pkl', 'rb') as file:
-    #     model = pickle.load(file)
+    with open('bike_model.pkl', 'rb') as file:
+        model = pickle.load(file)
     
     # # Define the button
     # if st.button('Predict'):
