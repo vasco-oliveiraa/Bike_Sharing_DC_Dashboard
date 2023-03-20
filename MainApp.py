@@ -13,11 +13,11 @@ st.set_page_config(
     page_icon='bike')
 
 pages = {
-    "Executive Summary": ExecutiveSummary,
-    "Data Exploration": DataExploration,
-    'Feature Engineering' : FeatureEngineering,
-    "Model Building": ModelBuilding,
-    'Prediction' : Prediction,
+    '📊 Executive Summary': ExecutiveSummary,
+    '🔎 Data Exploration': DataExploration,
+    '🛠️ Feature Engineering' : FeatureEngineering,
+    '🧪 Model Building': ModelBuilding,
+    '🔮 Prediction' : Prediction,
 }
 
 st.sidebar.title("Navigation")

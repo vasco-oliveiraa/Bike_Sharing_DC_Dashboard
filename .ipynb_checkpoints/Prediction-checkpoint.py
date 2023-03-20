@@ -7,6 +7,10 @@ import pickle
 
 def Prediction(display=True):
     
+    st.title("🚲 Bike-Sharing in Washington D.C")
+        
+    st.header('🔮 Prediction')
+    
     def get_season(date):
         # Extract month and day from the date
         month = date.month

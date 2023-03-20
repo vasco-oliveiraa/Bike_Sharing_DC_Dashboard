@@ -31,9 +31,9 @@ def DataExploration(display=True):
 
     # Title & Header
 
-    st.title("Bike-Sharing in Washington D.C")
+    st.title("🚲 Bike-Sharing in Washington D.C")
 
-    st.header("Data Exploration")
+    st.header("🔎 Data Exploration")
 
     st.subheader("This is a subheader")
 
@@ -54,6 +54,7 @@ def DataExploration(display=True):
                 'Month' : 'Month of record',
                 'Week' : 'Week of record',
                 'Day' : 'Day of record',
+                'Hour' : 'Hour of record',
                 'Weekday' : 'Monday = 1 ... Sunday = 7',
                 'Is_Holiday' : '1 if holiday, 0 otherwise',
                 'Is_Working_Day' : '1 if neither holiday nor weekend, 0 otherwise',
@@ -166,7 +167,13 @@ def DataExploration(display=True):
             with col2:
                 st.plotly_chart(chart, use_container_width=True)
 
-            st.caption(f':bulb: {VariableInfoInsights(variable)}')
+            if VariableInfoInsights(variable) == None:
+                
+                st.write('')
+                
+            else:
+                
+                st.caption(f':bulb: {VariableInfoInsights(variable)}')
 
         VariableAnalysis()
     

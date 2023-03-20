@@ -292,7 +292,9 @@ def FeatureEngineering(display=False):
         
     if display == True:
         
-        st.title('Feature Engineering')
+        st.title("🚲 Bike-Sharing in Washington D.C")
+        
+        st.header('🛠️ Feature Engineering')
 
         st.write("In this section, you can learn what transformation were made to the data in order to faciltate its understanding as well as to increase the model's predictive capability")
         

@@ -8,8 +8,9 @@ def ModelBuilding(display=True):
     
     if display == True:
         
-        st.title('Model Building')
-        st.write('This is Model Building Page')
+        st.title("🚲 Bike-Sharing in Washington D.C")
+        
+        st.header('🧪 Model Building')
             
         data = FeatureEngineering(display=False)['BasicFE']
 

@@ -31,9 +31,9 @@ def DataExploration(display=True):
 
     # Title & Header
 
-    st.title("Bike-Sharing in Washington D.C")
+    st.title("🚲 Bike-Sharing in Washington D.C")
 
-    st.header("Data Exploration")
+    st.header("🔎 Data Exploration")
 
     st.subheader("This is a subheader")
 
@@ -167,7 +167,13 @@ def DataExploration(display=True):
             with col2:
                 st.plotly_chart(chart, use_container_width=True)
 
-            st.caption(f':bulb: {VariableInfoInsights(variable)}')
+            if VariableInfoInsights(variable) == None:
+                
+                st.write('')
+                
+            else:
+                
+                st.caption(f':bulb: {VariableInfoInsights(variable)}')
 
         VariableAnalysis()
     

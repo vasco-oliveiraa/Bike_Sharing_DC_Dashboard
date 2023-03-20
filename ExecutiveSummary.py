@@ -3,7 +3,9 @@ import streamlit as st
 def ExecutiveSummary(display=True):
     if display == True:
         
-        st.title('Executive Summary')
+        st.title("🚲 Bike-Sharing in Washington D.C")
+        
+        st.header('📊 Executive Summary')
 
         st.subheader("Introduction")
 
