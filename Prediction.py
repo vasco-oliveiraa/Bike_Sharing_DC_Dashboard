@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import pickle
+from pycaret.regression import *
 
 def Prediction(display=True):
     
