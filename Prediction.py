@@ -3,8 +3,6 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import pickle
-from pycaret.regression import *
 
 from ModelBuilding import RF_Model
 
@@ -190,22 +188,8 @@ def Prediction(display=True):
     if st.button('Predict'):
         # Predict the target value using the pre-trained model
         y_pred = RF_Model(data)
-        
-    # Load the pre-trained regression model
-    # with open('bike_model.pkl', 'rb') as f:
-    #     model = pickle.load(f)
-        
-    # model = 0
-    # Define the slider
 
         # Display the predicted target value
         st.write('Predicted target value:', y_pred[0])
-        
-    # with open('bike_model.pkl', 'rb') as file:
-    #     model = pickle.load(file)
     
-    pipeline = load_model('bike_model')
-    prediction = predict_model(pipeline, data_unseen)
-    
-    st.dataframe(prediction)
         
