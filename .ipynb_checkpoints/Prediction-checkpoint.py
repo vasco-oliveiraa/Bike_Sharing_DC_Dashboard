@@ -4,7 +4,8 @@ import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import pickle
-import pycaret
+
+from ModelBuilding import RF_Model
 
 def Prediction(display=True):
     
@@ -123,33 +124,81 @@ def Prediction(display=True):
 
     season = get_season(date)
 
+    # user_input = {
+    #     'Date' : date,
+    #     'Season' : season,
+    #     'Year' : year,
+    #     'Month' : month,
+    #     'Hour' : hour,
+    #     'Is_Holiday' : is_holiday,
+    #     'Is_Working_Day' : is_working_day,
+    #     'Weekday' : weekday,
+    #     'Weather_Condition' : weather_condition,
+    #     'Temperature' : temperature,
+    #     'Humidity' : humidity,
+    #     'Wind_Speed' : wind_speed
+    # }
+    
     user_input = {
-        'Date' : date,
-        'Season' : season,
-        'Year' : year,
-        'Month' : month,
-        'Hour' : hour,
-        'Is_Holiday' : is_holiday,
-        'Is_Working_Day' : is_working_day,
-        'Weekday' : weekday,
-        'Weather_Condition' : weather_condition,
-        'Temperature' : temperature,
-        'Humidity' : humidity,
-        'Wind_Speed' : wind_speed
+        'Season': 4.0,
+         'Year': 2012.0,
+         'Day_Period': 3.0,
+         'Is_Holiday': 0.0,
+         'Is_Working_Day': 1.0,
+         'Weather_Condition': 1.0,
+         'Temperature': 18.86,
+         'Humidity': 41.0,
+         'Wind_Speed': 23.9994,
+         'Cos_Hour': -0.5000000000000004,
+         'Sin_Hour': -0.8660254037844385,
+         'Cos_Day': -0.8090169943749473,
+         'Sin_Day': 0.5877852522924732,
+         'Cos_Weekday': -0.2225209339563146,
+         'Sin_Weekday': -0.9749279121818236,
+         'Cos_Week': 0.23931566428755738,
+         'Sin_Week': -0.9709418174260521,
+         'Cos_Month': 0.5000000000000001,
+         'Sin_Month': -0.8660254037844386,
+         'Temperature/Feel_Factor': 1.204931071049841,
+         'Weather_Factor': 18557.776044000002,
+         'Average_Hourly_Users': 311.9835616438356,
+         'Min_Hourly_Users': 11.0,
+         'Max_Hourly_Users': 783.0,
+         'Average_Hourly_Temperature_Season': 19.907005649717515,
+         'Min_Hourly_Temperature_Season': 9.02,
+         'Max_Hourly_Temperature_Season': 30.34,
+         'Average_Hourly_Humidity_Season': 53.49152542372882,
+         'Min_Hourly_Humidity_Season': 16.0,
+         'Max_Hourly_Humidity_Season': 100.0,
+         'Average_Hourly_Wind_Speed_Season': 13.989032203389831,
+         'Min_Hourly_Wind_Speed_Season': 0.0,
+         'Max_Hourly_Wind_Speed_Season': 35.0008,
+         'Average_Daily_Users': 204.11166666666668,
+         'Min_Daily_Users': 1.0,
+         'Max_Daily_Users': 900.0,
+         'Average_Daily_Users_Season': 17.157133333333334,
+         'Min_Daily_Users_Season': 6.5600000000000005,
+         'Max_Daily_Users_Season': 30.34,
+         'Average_Daily_Humidity_Season': 63.266666666666666,
+         'Min_Daily_Humidity_Season': 28.999999999999996,
+         'Max_Daily_Humidity_Season': 100.0,
+         'Average_Daily_Wind_Speed_Season': 11.183751666666668,
+         'Min_Daily_Wind_Speed_Season': 0.0,
+         'Max_Daily_Wind_Speed_Season': 36.9974
     }
     
     data = pd.DataFrame(user_input, index=[0])
     
     st.dataframe(data)
     
-    with open('bike_model.pkl', 'rb') as file:
-        model = pickle.load(file)
-    
-    # # Define the button
-    # if st.button('Predict'):
-    #     # Predict the target value using the pre-trained model
-    #     y_pred = model.predict([[x]])
+    # Define the button
+    if st.button('Predict'):
+        # Predict the target value using the pre-trained model
+        y_pred = RF_Model(data)
 
-    #     # Display the predicted target value
-    #     st.write('Predicted target value:', y_pred[0])
+        # Display the predicted target value
+        st.write('Predicted target value:', y_pred[0])
+        
+    # with open('bike_model.pkl', 'rb') as file:
+    #     model = pickle.load(file)
     
