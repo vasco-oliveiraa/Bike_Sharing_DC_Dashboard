@@ -28,12 +28,6 @@ def Prediction(display=True):
         elif (month == 9 and day >= 22) or (month == 10) or (month == 11) or (month == 12 and day < 21):
             return 4
 
-    # Load the pre-trained regression model
-    # with open('bike_model.pkl', 'rb') as f:
-    #     model = pickle.load(f)
-    # model = 0
-    # Define the slider
-
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -195,6 +189,13 @@ def Prediction(display=True):
     if st.button('Predict'):
         # Predict the target value using the pre-trained model
         y_pred = RF_Model(data)
+        
+    # Load the pre-trained regression model
+    # with open('bike_model.pkl', 'rb') as f:
+    #     model = pickle.load(f)
+        
+    # model = 0
+    # Define the slider
 
         # Display the predicted target value
         st.write('Predicted target value:', y_pred[0])
@@ -202,3 +203,8 @@ def Prediction(display=True):
     # with open('bike_model.pkl', 'rb') as file:
     #     model = pickle.load(file)
     
+    pipeline = load_model('bike_model')
+    prediction = predict_model(pipeline, data_unseen)
+    
+    st.dataframe(prediction)
+        
