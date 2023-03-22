@@ -13221,3 +13221,1253 @@ KeyboardInterrupt
 2023-03-19 22:56:25,702:WARNING:No coef_ found. Trying feature_importances_
 2023-03-19 22:56:26,636:INFO:Visual Rendered Successfully
 2023-03-19 22:56:26,754:INFO:plot_model() succesfully completed......................................
+2023-03-22 13:02:09,453:INFO:PyCaret Supervised Module
+2023-03-22 13:02:09,461:INFO:ML Usecase: regression
+2023-03-22 13:02:09,463:INFO:version 2.3.10
+2023-03-22 13:02:09,463:INFO:Initializing setup()
+2023-03-22 13:02:09,465:INFO:setup(target=Total_Users, ml_usecase=regression, available_plots={'parameter': 'Hyperparameters', 'residuals': 'Residuals', 'error': 'Prediction Error', 'cooks': 'Cooks Distance', 'rfe': 'Feature Selection', 'learning': 'Learning Curve', 'manifold': 'Manifold Learning', 'vc': 'Validation Curve', 'feature': 'Feature Importance', 'feature_all': 'Feature Importance (All)', 'tree': 'Decision Tree', 'residuals_interactive': 'Interactive Residuals'}, train_size=0.8, test_data=None, preprocess=False, imputation_type=simple, iterative_imputation_iters=5, categorical_features=['Season', 'Year', 'Day_Period', 'Is_Holiday', 'Is_Working_Day', 'Weather_Condition'], categorical_imputation=constant, categorical_iterative_imputer=lightgbm, ordinal_features=None, high_cardinality_features=None, high_cardinality_method=frequency, numeric_features=['Temperature', 'Humidity', 'Wind_Speed', 'Cos_Hour', 'Sin_Hour', 'Cos_Day', 'Sin_Day', 'Cos_Weekday', 'Sin_Weekday', 'Cos_Week', 'Sin_Week', 'Cos_Month', 'Sin_Month', 'Temperature/Feel_Factor', 'Weather_Factor', 'Average_Hourly_Users', 'Min_Hourly_Users', 'Max_Hourly_Users', 'Average_Hourly_Temperature_Season', 'Min_Hourly_Temperature_Season', 'Max_Hourly_Temperature_Season', 'Average_Hourly_Humidity_Season', 'Min_Hourly_Humidity_Season', 'Max_Hourly_Humidity_Season', 'Average_Hourly_Wind_Speed_Season', 'Min_Hourly_Wind_Speed_Season', 'Max_Hourly_Wind_Speed_Season', 'Average_Daily_Users', 'Min_Daily_Users', 'Max_Daily_Users', 'Average_Daily_Users_Season', 'Min_Daily_Users_Season', 'Max_Daily_Users_Season', 'Average_Daily_Humidity_Season', 'Min_Daily_Humidity_Season', 'Max_Daily_Humidity_Season', 'Average_Daily_Wind_Speed_Season', 'Min_Daily_Wind_Speed_Season', 'Max_Daily_Wind_Speed_Season'], numeric_imputation=mean, numeric_iterative_imputer=lightgbm, date_features=None, ignore_features=None, normalize=False, normalize_method=zscore, transformation=False, transformation_method=yeo-johnson, handle_unknown_categorical=True, unknown_categorical_method=least_frequent, pca=False, pca_method=linear, pca_components=None, ignore_low_variance=False, combine_rare_levels=False, rare_level_threshold=0.1, bin_numeric_features=None, remove_outliers=False, outliers_threshold=0.05, remove_multicollinearity=False, multicollinearity_threshold=0.9, remove_perfect_collinearity=True, create_clusters=False, cluster_iter=20, polynomial_features=False, polynomial_degree=2, trigonometry_features=False, polynomial_threshold=0.1, group_features=None, group_names=None, feature_selection=True, feature_selection_threshold=0.2, feature_selection_method=classic, feature_interaction=False, feature_ratio=False, interaction_threshold=0.01, fix_imbalance=False, fix_imbalance_method=None, transform_target=False, transform_target_method=box-cox, data_split_shuffle=True, data_split_stratify=False, fold_strategy=kfold, fold=10, fold_shuffle=False, fold_groups=None, n_jobs=-1, use_gpu=True, custom_pipeline=None, html=True, session_id=123, log_experiment=False, experiment_name=None, experiment_custom_tags=None, log_plots=False, log_profile=False, log_data=False, silent=False, verbose=True, profile=False, profile_kwargs=None, display=None)
+2023-03-22 13:02:09,465:INFO:Checking environment
+2023-03-22 13:02:09,465:INFO:python_version: 3.8.16
+2023-03-22 13:02:09,465:INFO:python_build: ('default', 'Mar  2 2023 03:18:16')
+2023-03-22 13:02:09,466:INFO:machine: AMD64
+2023-03-22 13:02:09,466:INFO:platform: Windows-10-10.0.22621-SP0
+2023-03-22 13:02:09,466:INFO:Memory: svmem(total=16968585216, available=9732812800, percent=42.6, used=7235772416, free=9732812800)
+2023-03-22 13:02:09,467:INFO:Physical Core: 4
+2023-03-22 13:02:09,467:INFO:Logical Core: 8
+2023-03-22 13:02:09,467:INFO:Checking libraries
+2023-03-22 13:02:09,467:INFO:pd==1.5.3
+2023-03-22 13:02:09,467:INFO:numpy==1.20.3
+2023-03-22 13:02:09,467:INFO:sklearn==0.23.2
+2023-03-22 13:02:09,468:INFO:lightgbm==3.3.5
+2023-03-22 13:02:09,802:INFO:catboost==1.1.1
+2023-03-22 13:02:09,810:WARNING:xgboost not found
+2023-03-22 13:02:09,810:INFO:mlflow==2.2.1
+2023-03-22 13:02:09,810:INFO:Checking Exceptions
+2023-03-22 13:02:09,810:INFO:Declaring global variables
+2023-03-22 13:02:09,810:INFO:USI: 16a5
+2023-03-22 13:02:09,810:INFO:pycaret_globals: {'fix_imbalance_param', 'imputation_regressor', 'create_model_container', 'iterative_imputation_iters_param', 'log_plots_param', '_all_metrics', 'X_test', '_all_models', 'logging_param', 'fold_generator', 'fold_groups_param_full', '_ml_usecase', 'USI', 'target_param', '_gpu_n_jobs_param', 'y_train', 'X_train', 'display_container', 'pycaret_globals', 'data_before_preprocess', 'exp_name_log', 'gpu_param', 'imputation_classifier', 'master_model_container', '_available_plots', 'html_param', 'dashboard_logger', 'y', 'fix_imbalance_method_param', 'transform_target_method_param', 'experiment__', 'X', 'n_jobs_param', '_all_models_internal', 'prep_pipe', 'fold_shuffle_param', 'stratify_param', 'seed', 'transform_target_param', 'fold_groups_param', 'fold_param', 'y_test', '_internal_pipeline'}
+2023-03-22 13:02:09,810:INFO:Preparing display monitor
+2023-03-22 13:02:09,810:INFO:Preparing display monitor
+2023-03-22 13:02:09,844:INFO:Importing libraries
+2023-03-22 13:02:09,844:INFO:Copying data for preprocessing
+2023-03-22 13:02:09,869:INFO:Declaring preprocessing parameters
+2023-03-22 13:02:09,869:WARNING:cuML not found
+2023-03-22 13:02:09,869:WARNING:cuML is outdated or not found. Required version is >=0.15, got 1.1.1
+2023-03-22 13:02:09,880:INFO:Creating preprocessing pipeline
+2023-03-22 13:02:09,923:INFO:Preprocessing pipeline created successfully
+2023-03-22 13:02:09,923:ERROR:(Process Exit): setup has been interupted with user command 'quit'. setup must rerun.
+2023-03-22 13:02:09,923:INFO:Creating global containers
+2023-03-22 13:02:09,931:INFO:Internal pipeline: Pipeline(memory=None, steps=[('empty_step', 'passthrough')], verbose=False)
+2023-03-22 13:04:28,464:WARNING:Couldn't import cuml.linear_model.LinearRegression
+2023-03-22 13:04:28,464:WARNING:Couldn't import cuml.linear_model.Lasso
+2023-03-22 13:04:28,480:WARNING:Couldn't import cuml.linear_model.Ridge
+2023-03-22 13:04:28,488:WARNING:Couldn't import cuml.linear_model.ElasticNet
+2023-03-22 13:04:28,634:WARNING:Couldn't import cuml.svm.SVR
+2023-03-22 13:04:28,756:WARNING:Couldn't import cuml.neighbors.KNeighborsRegressor
+2023-03-22 13:04:28,756:WARNING:Couldn't import cuml.ensemble
+2023-03-22 13:04:28,760:WARNING:Couldn't import xgboost.XGBRegressor
+2023-03-22 13:04:29,060:WARNING:Couldn't import cuml.linear_model.LinearRegression
+2023-03-22 13:04:29,060:WARNING:Couldn't import cuml.linear_model.Lasso
+2023-03-22 13:04:29,088:WARNING:Couldn't import cuml.linear_model.Ridge
+2023-03-22 13:04:29,104:WARNING:Couldn't import cuml.linear_model.ElasticNet
+2023-03-22 13:04:29,260:WARNING:Couldn't import cuml.svm.SVR
+2023-03-22 13:04:29,386:WARNING:Couldn't import cuml.neighbors.KNeighborsRegressor
+2023-03-22 13:04:29,386:WARNING:Couldn't import cuml.ensemble
+2023-03-22 13:04:29,394:WARNING:Couldn't import xgboost.XGBRegressor
+2023-03-22 13:04:29,415:INFO:Creating grid variables
+2023-03-22 13:04:29,450:INFO:create_model_container: 0
+2023-03-22 13:04:29,450:INFO:master_model_container: 0
+2023-03-22 13:04:29,454:INFO:display_container: 1
+2023-03-22 13:04:29,459:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Temperature_Season',
+                                                          'Max_Hourly_Temperature_Season',
+                                                          'Average_Hourly_Humidity_Season',
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users',
+                                      time_features=[]))],
+         verbose=False)
+2023-03-22 13:04:29,462:INFO:setup() succesfully completed......................................
+2023-03-22 13:05:10,783:INFO:Initializing compare_models()
+2023-03-22 13:05:10,783:INFO:compare_models(include=['et', 'rf'], fold=10, round=4, cross_validation=True, sort=RMSE, n_select=2, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, experiment_custom_tags=None, probability_threshold=None, verbose=True, display=None, exclude=None)
+2023-03-22 13:05:10,783:INFO:Checking exceptions
+2023-03-22 13:05:10,783:INFO:Preparing display monitor
+2023-03-22 13:05:10,789:INFO:Preparing display monitor
+2023-03-22 13:05:10,838:INFO:Initializing Extra Trees Regressor
+2023-03-22 13:05:10,838:INFO:Total runtime is 0.0 minutes
+2023-03-22 13:05:10,848:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:05:10,855:INFO:Initializing create_model()
+2023-03-22 13:05:10,855:INFO:create_model(estimator=et, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C0291AAC0>, return_train_score=False, kwargs={})
+2023-03-22 13:05:10,856:INFO:Checking exceptions
+2023-03-22 13:05:10,856:INFO:Importing libraries
+2023-03-22 13:05:10,856:INFO:Copying training dataset
+2023-03-22 13:05:10,858:INFO:Defining folds
+2023-03-22 13:05:10,858:INFO:Declaring metric variables
+2023-03-22 13:05:10,872:INFO:Importing untrained model
+2023-03-22 13:05:10,892:INFO:Extra Trees Regressor Imported succesfully
+2023-03-22 13:05:10,921:INFO:Starting cross validation
+2023-03-22 13:05:10,933:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:06:32,086:INFO:Calculating mean and std
+2023-03-22 13:06:32,094:INFO:Creating metrics dataframe
+2023-03-22 13:06:32,110:INFO:Uploading results into container
+2023-03-22 13:06:32,110:INFO:Uploading model into container now
+2023-03-22 13:06:32,110:INFO:create_model_container: 1
+2023-03-22 13:06:32,110:INFO:master_model_container: 1
+2023-03-22 13:06:32,110:INFO:display_container: 2
+2023-03-22 13:06:32,110:INFO:ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:06:32,110:INFO:create_model() succesfully completed......................................
+2023-03-22 13:06:32,280:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:06:32,280:INFO:Creating metrics dataframe
+2023-03-22 13:06:32,296:INFO:Initializing Random Forest Regressor
+2023-03-22 13:06:32,296:INFO:Total runtime is 1.3576288064320883 minutes
+2023-03-22 13:06:32,322:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:06:32,324:INFO:Initializing create_model()
+2023-03-22 13:06:32,324:INFO:create_model(estimator=rf, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C0291AAC0>, return_train_score=False, kwargs={})
+2023-03-22 13:06:32,325:INFO:Checking exceptions
+2023-03-22 13:06:32,325:INFO:Importing libraries
+2023-03-22 13:06:32,325:INFO:Copying training dataset
+2023-03-22 13:06:32,325:INFO:Defining folds
+2023-03-22 13:06:32,325:INFO:Declaring metric variables
+2023-03-22 13:06:32,346:INFO:Importing untrained model
+2023-03-22 13:06:32,357:INFO:Random Forest Regressor Imported succesfully
+2023-03-22 13:06:32,422:INFO:Starting cross validation
+2023-03-22 13:06:32,422:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:07:37,111:INFO:Calculating mean and std
+2023-03-22 13:07:37,111:INFO:Creating metrics dataframe
+2023-03-22 13:07:37,127:INFO:Uploading results into container
+2023-03-22 13:07:37,127:INFO:Uploading model into container now
+2023-03-22 13:07:37,127:INFO:create_model_container: 2
+2023-03-22 13:07:37,127:INFO:master_model_container: 2
+2023-03-22 13:07:37,127:INFO:display_container: 2
+2023-03-22 13:07:37,127:INFO:RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion='mse',
+                      max_depth=None, max_features='auto', max_leaf_nodes=None,
+                      max_samples=None, min_impurity_decrease=0.0,
+                      min_impurity_split=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0.0,
+                      n_estimators=100, n_jobs=-1, oob_score=False,
+                      random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:07:37,127:INFO:create_model() succesfully completed......................................
+2023-03-22 13:07:37,258:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:07:37,258:INFO:Creating metrics dataframe
+2023-03-22 13:07:37,306:INFO:Initializing create_model()
+2023-03-22 13:07:37,306:INFO:create_model(estimator=ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False), fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:07:37,306:INFO:Checking exceptions
+2023-03-22 13:07:37,306:INFO:Importing libraries
+2023-03-22 13:07:37,306:INFO:Copying training dataset
+2023-03-22 13:07:37,306:INFO:Defining folds
+2023-03-22 13:07:37,306:INFO:Declaring metric variables
+2023-03-22 13:07:37,306:INFO:Importing untrained model
+2023-03-22 13:07:37,306:INFO:Declaring custom model
+2023-03-22 13:07:37,314:INFO:Extra Trees Regressor Imported succesfully
+2023-03-22 13:07:37,317:INFO:Cross validation set to False
+2023-03-22 13:07:37,317:INFO:Fitting Model
+2023-03-22 13:07:40,928:INFO:ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:07:40,929:INFO:create_models() succesfully completed......................................
+2023-03-22 13:07:41,092:INFO:Initializing create_model()
+2023-03-22 13:07:41,092:INFO:create_model(estimator=RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion='mse',
+                      max_depth=None, max_features='auto', max_leaf_nodes=None,
+                      max_samples=None, min_impurity_decrease=0.0,
+                      min_impurity_split=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0.0,
+                      n_estimators=100, n_jobs=-1, oob_score=False,
+                      random_state=123, verbose=0, warm_start=False), fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:07:41,092:INFO:Checking exceptions
+2023-03-22 13:07:41,092:INFO:Importing libraries
+2023-03-22 13:07:41,094:INFO:Copying training dataset
+2023-03-22 13:07:41,098:INFO:Defining folds
+2023-03-22 13:07:41,098:INFO:Declaring metric variables
+2023-03-22 13:07:41,098:INFO:Importing untrained model
+2023-03-22 13:07:41,098:INFO:Declaring custom model
+2023-03-22 13:07:41,101:INFO:Random Forest Regressor Imported succesfully
+2023-03-22 13:07:41,101:INFO:Cross validation set to False
+2023-03-22 13:07:41,101:INFO:Fitting Model
+2023-03-22 13:07:46,911:INFO:RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion='mse',
+                      max_depth=None, max_features='auto', max_leaf_nodes=None,
+                      max_samples=None, min_impurity_decrease=0.0,
+                      min_impurity_split=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0.0,
+                      n_estimators=100, n_jobs=-1, oob_score=False,
+                      random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:07:46,911:INFO:create_models() succesfully completed......................................
+2023-03-22 13:07:47,097:INFO:create_model_container: 2
+2023-03-22 13:07:47,097:INFO:master_model_container: 2
+2023-03-22 13:07:47,097:INFO:display_container: 2
+2023-03-22 13:07:47,097:INFO:[ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False), RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion='mse',
+                      max_depth=None, max_features='auto', max_leaf_nodes=None,
+                      max_samples=None, min_impurity_decrease=0.0,
+                      min_impurity_split=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0.0,
+                      n_estimators=100, n_jobs=-1, oob_score=False,
+                      random_state=123, verbose=0, warm_start=False)]
+2023-03-22 13:07:47,097:INFO:compare_models() succesfully completed......................................
+2023-03-22 13:08:28,729:INFO:Initializing compare_models()
+2023-03-22 13:08:28,729:INFO:compare_models(include=['et', 'rf', 'catboost'], fold=10, round=4, cross_validation=True, sort=RMSE, n_select=2, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, experiment_custom_tags=None, probability_threshold=None, verbose=True, display=None, exclude=None)
+2023-03-22 13:08:28,729:INFO:Checking exceptions
+2023-03-22 13:08:28,729:INFO:Preparing display monitor
+2023-03-22 13:08:28,729:INFO:Preparing display monitor
+2023-03-22 13:08:28,798:INFO:Initializing Extra Trees Regressor
+2023-03-22 13:08:28,800:INFO:Total runtime is 0.0 minutes
+2023-03-22 13:08:28,818:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:08:28,818:INFO:Initializing create_model()
+2023-03-22 13:08:28,818:INFO:create_model(estimator=et, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C018B78E0>, return_train_score=False, kwargs={})
+2023-03-22 13:08:28,818:INFO:Checking exceptions
+2023-03-22 13:08:28,818:INFO:Importing libraries
+2023-03-22 13:08:28,818:INFO:Copying training dataset
+2023-03-22 13:08:28,826:INFO:Defining folds
+2023-03-22 13:08:28,829:INFO:Declaring metric variables
+2023-03-22 13:08:28,851:INFO:Importing untrained model
+2023-03-22 13:08:28,869:INFO:Extra Trees Regressor Imported succesfully
+2023-03-22 13:08:28,923:INFO:Starting cross validation
+2023-03-22 13:08:28,923:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:09:50,413:INFO:Calculating mean and std
+2023-03-22 13:09:50,415:INFO:Creating metrics dataframe
+2023-03-22 13:09:50,423:INFO:Uploading results into container
+2023-03-22 13:09:50,423:INFO:Uploading model into container now
+2023-03-22 13:09:50,423:INFO:create_model_container: 3
+2023-03-22 13:09:50,423:INFO:master_model_container: 3
+2023-03-22 13:09:50,427:INFO:display_container: 3
+2023-03-22 13:09:50,428:INFO:ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:09:50,428:INFO:create_model() succesfully completed......................................
+2023-03-22 13:09:50,566:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:09:50,566:INFO:Creating metrics dataframe
+2023-03-22 13:09:50,583:INFO:Initializing Random Forest Regressor
+2023-03-22 13:09:50,583:INFO:Total runtime is 1.3630709012349447 minutes
+2023-03-22 13:09:50,607:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:09:50,607:INFO:Initializing create_model()
+2023-03-22 13:09:50,607:INFO:create_model(estimator=rf, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C018B78E0>, return_train_score=False, kwargs={})
+2023-03-22 13:09:50,607:INFO:Checking exceptions
+2023-03-22 13:09:50,607:INFO:Importing libraries
+2023-03-22 13:09:50,607:INFO:Copying training dataset
+2023-03-22 13:09:50,613:INFO:Defining folds
+2023-03-22 13:09:50,614:INFO:Declaring metric variables
+2023-03-22 13:09:50,627:INFO:Importing untrained model
+2023-03-22 13:09:50,641:INFO:Random Forest Regressor Imported succesfully
+2023-03-22 13:09:50,670:INFO:Starting cross validation
+2023-03-22 13:09:50,672:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:10:53,847:INFO:Calculating mean and std
+2023-03-22 13:10:53,847:INFO:Creating metrics dataframe
+2023-03-22 13:10:53,863:INFO:Uploading results into container
+2023-03-22 13:10:53,863:INFO:Uploading model into container now
+2023-03-22 13:10:53,863:INFO:create_model_container: 4
+2023-03-22 13:10:53,863:INFO:master_model_container: 4
+2023-03-22 13:10:53,868:INFO:display_container: 3
+2023-03-22 13:10:53,870:INFO:RandomForestRegressor(bootstrap=True, ccp_alpha=0.0, criterion='mse',
+                      max_depth=None, max_features='auto', max_leaf_nodes=None,
+                      max_samples=None, min_impurity_decrease=0.0,
+                      min_impurity_split=None, min_samples_leaf=1,
+                      min_samples_split=2, min_weight_fraction_leaf=0.0,
+                      n_estimators=100, n_jobs=-1, oob_score=False,
+                      random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:10:53,871:INFO:create_model() succesfully completed......................................
+2023-03-22 13:10:54,064:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:10:54,065:INFO:Creating metrics dataframe
+2023-03-22 13:10:54,090:INFO:Initializing CatBoost Regressor
+2023-03-22 13:10:54,090:INFO:Total runtime is 2.4215238253275553 minutes
+2023-03-22 13:10:54,106:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:10:54,106:INFO:Initializing create_model()
+2023-03-22 13:10:54,106:INFO:create_model(estimator=catboost, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C018B78E0>, return_train_score=False, kwargs={})
+2023-03-22 13:10:54,114:INFO:Checking exceptions
+2023-03-22 13:10:54,114:INFO:Importing libraries
+2023-03-22 13:10:54,114:INFO:Copying training dataset
+2023-03-22 13:10:54,114:INFO:Defining folds
+2023-03-22 13:10:54,114:INFO:Declaring metric variables
+2023-03-22 13:10:54,135:INFO:Importing untrained model
+2023-03-22 13:10:54,162:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 13:10:54,205:INFO:Starting cross validation
+2023-03-22 13:10:54,212:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:12:07,541:INFO:Calculating mean and std
+2023-03-22 13:12:07,541:INFO:Creating metrics dataframe
+2023-03-22 13:12:07,552:INFO:Uploading results into container
+2023-03-22 13:12:07,552:INFO:Uploading model into container now
+2023-03-22 13:12:07,552:INFO:create_model_container: 5
+2023-03-22 13:12:07,552:INFO:master_model_container: 5
+2023-03-22 13:12:07,552:INFO:display_container: 3
+2023-03-22 13:12:07,554:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C1936E9A0>
+2023-03-22 13:12:07,554:INFO:create_model() succesfully completed......................................
+2023-03-22 13:12:07,690:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:12:07,690:INFO:Creating metrics dataframe
+2023-03-22 13:12:07,762:INFO:Initializing create_model()
+2023-03-22 13:12:07,762:INFO:create_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C1936E9A0>, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:12:07,762:INFO:Checking exceptions
+2023-03-22 13:12:07,762:INFO:Importing libraries
+2023-03-22 13:12:07,762:INFO:Copying training dataset
+2023-03-22 13:12:07,770:INFO:Defining folds
+2023-03-22 13:12:07,770:INFO:Declaring metric variables
+2023-03-22 13:12:07,770:INFO:Importing untrained model
+2023-03-22 13:12:07,770:INFO:Declaring custom model
+2023-03-22 13:12:07,770:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 13:12:07,770:INFO:Cross validation set to False
+2023-03-22 13:12:07,770:INFO:Fitting Model
+2023-03-22 13:12:14,999:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C268409A0>
+2023-03-22 13:12:14,999:INFO:create_models() succesfully completed......................................
+2023-03-22 13:12:15,168:INFO:Initializing create_model()
+2023-03-22 13:12:15,168:INFO:create_model(estimator=ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False), fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:12:15,168:INFO:Checking exceptions
+2023-03-22 13:12:15,168:INFO:Importing libraries
+2023-03-22 13:12:15,168:INFO:Copying training dataset
+2023-03-22 13:12:15,168:INFO:Defining folds
+2023-03-22 13:12:15,168:INFO:Declaring metric variables
+2023-03-22 13:12:15,168:INFO:Importing untrained model
+2023-03-22 13:12:15,176:INFO:Declaring custom model
+2023-03-22 13:12:15,176:INFO:Extra Trees Regressor Imported succesfully
+2023-03-22 13:12:15,176:INFO:Cross validation set to False
+2023-03-22 13:12:15,176:INFO:Fitting Model
+2023-03-22 13:12:19,438:INFO:ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:12:19,438:INFO:create_models() succesfully completed......................................
+2023-03-22 13:12:19,617:INFO:create_model_container: 5
+2023-03-22 13:12:19,617:INFO:master_model_container: 5
+2023-03-22 13:12:19,617:INFO:display_container: 3
+2023-03-22 13:12:19,617:INFO:[<catboost.core.CatBoostRegressor object at 0x0000019C268409A0>, ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)]
+2023-03-22 13:12:19,617:INFO:compare_models() succesfully completed......................................
+2023-03-22 13:12:48,315:INFO:Initializing tune_model()
+2023-03-22 13:12:48,315:INFO:tune_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C268409A0>, fold=10, round=4, n_iter=10, custom_grid=None, optimize=RMSE, custom_scorer=None, search_library=scikit-learn, search_algorithm=random, early_stopping=False, early_stopping_max_iters=10, choose_better=False, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=True, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:12:48,315:INFO:Checking exceptions
+2023-03-22 13:12:48,315:INFO:Preparing display monitor
+2023-03-22 13:12:48,371:INFO:Copying training dataset
+2023-03-22 13:12:48,371:INFO:Checking base model
+2023-03-22 13:12:48,379:INFO:Base model : CatBoost Regressor
+2023-03-22 13:12:48,403:INFO:Declaring metric variables
+2023-03-22 13:12:48,426:INFO:Defining Hyperparameters
+2023-03-22 13:12:48,548:INFO:Tuning with n_jobs=-1
+2023-03-22 13:12:48,548:INFO:Initializing RandomizedSearchCV
+2023-03-22 13:13:43,713:INFO:best_params: {'actual_estimator__random_strength': 0.2, 'actual_estimator__n_estimators': 180, 'actual_estimator__l2_leaf_reg': 30, 'actual_estimator__eta': 0.4, 'actual_estimator__depth': 8}
+2023-03-22 13:13:43,715:INFO:Hyperparameter search completed
+2023-03-22 13:13:43,716:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:13:43,716:INFO:Initializing create_model()
+2023-03-22 13:13:43,716:INFO:create_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C1D4525E0>, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=True, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C0291AAC0>, return_train_score=False, kwargs={'random_strength': 0.2, 'n_estimators': 180, 'l2_leaf_reg': 30, 'eta': 0.4, 'depth': 8})
+2023-03-22 13:13:43,716:INFO:Checking exceptions
+2023-03-22 13:13:43,716:INFO:Importing libraries
+2023-03-22 13:13:43,716:INFO:Copying training dataset
+2023-03-22 13:13:43,720:INFO:Defining folds
+2023-03-22 13:13:43,720:INFO:Declaring metric variables
+2023-03-22 13:13:43,738:INFO:Importing untrained model
+2023-03-22 13:13:43,738:INFO:Declaring custom model
+2023-03-22 13:13:43,756:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 13:13:43,792:INFO:Starting cross validation
+2023-03-22 13:13:43,793:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:14:05,970:INFO:Calculating mean and std
+2023-03-22 13:14:05,970:INFO:Creating metrics dataframe
+2023-03-22 13:14:06,002:INFO:Finalizing model
+2023-03-22 13:14:08,657:INFO:Uploading results into container
+2023-03-22 13:14:08,657:INFO:Uploading model into container now
+2023-03-22 13:14:08,657:INFO:create_model_container: 6
+2023-03-22 13:14:08,657:INFO:master_model_container: 6
+2023-03-22 13:14:08,657:INFO:display_container: 4
+2023-03-22 13:14:08,657:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C18D08640>
+2023-03-22 13:14:08,657:INFO:create_model() succesfully completed......................................
+2023-03-22 13:14:08,819:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:14:08,835:INFO:create_model_container: 6
+2023-03-22 13:14:08,835:INFO:master_model_container: 6
+2023-03-22 13:14:08,835:INFO:display_container: 4
+2023-03-22 13:14:08,835:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C18D08640>
+2023-03-22 13:14:08,835:INFO:tune_model() succesfully completed......................................
+2023-03-22 13:14:09,021:INFO:Initializing plot_model()
+2023-03-22 13:14:09,021:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostRegressor object at 0x0000019C18D08640>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature_all, plot_kwargs=None, save=False, scale=1, system=True)
+2023-03-22 13:14:09,024:INFO:Checking exceptions
+2023-03-22 13:14:09,025:INFO:Preparing display monitor
+2023-03-22 13:14:09,041:INFO:Preloading libraries
+2023-03-22 13:14:09,050:INFO:Copying training dataset
+2023-03-22 13:14:09,052:INFO:Copying test dataset
+2023-03-22 13:14:09,059:INFO:Plot type: feature_all
+2023-03-22 13:14:09,065:WARNING:No coef_ found. Trying feature_importances_
+2023-03-22 13:14:10,399:INFO:Visual Rendered Successfully
+2023-03-22 13:14:10,539:INFO:plot_model() succesfully completed......................................
+2023-03-22 13:14:41,574:INFO:Initializing save_model()
+2023-03-22 13:14:41,574:INFO:save_model(model=<catboost.core.CatBoostRegressor object at 0x0000019C18D08640>, model_name=bike_model, prep_pipe_=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Temperature_Season',
+                                                          'Max_Hourly_Temperature_Season',
+                                                          'Average_Hourly_Humidity_Season',
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users',
+                                      time_features=[]))],
+         verbose=False), verbose=True, kwargs={})
+2023-03-22 13:14:41,574:INFO:Adding model into prep_pipe
+2023-03-22 13:14:41,590:INFO:bike_model.pkl saved in current working directory
+2023-03-22 13:14:41,599:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C18D08640>]],
+         verbose=False)
+2023-03-22 13:14:41,599:INFO:save_model() successfully completed......................................
+2023-03-22 13:14:45,635:INFO:Initializing load_model()
+2023-03-22 13:14:45,635:INFO:load_model(model_name=bike_model, platform=None, authentication=None, verbose=True)
+2023-03-22 13:14:45,669:INFO:Initializing predict_model()
+2023-03-22 13:14:45,669:INFO:predict_model(estimator=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C268153D0>]],
+         verbose=False), probability_threshold=None, encoded_labels=True, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None, drift_kwargs=None)
+2023-03-22 13:14:45,669:INFO:Checking exceptions
+2023-03-22 13:14:45,675:INFO:Preloading libraries
+2023-03-22 13:14:45,675:INFO:Preparing display monitor
+2023-03-22 13:14:58,354:INFO:Initializing predict_model()
+2023-03-22 13:14:58,354:INFO:predict_model(estimator=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C268153D0>]],
+         verbose=False), probability_threshold=None, encoded_labels=True, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None, drift_kwargs=None)
+2023-03-22 13:14:58,354:INFO:Checking exceptions
+2023-03-22 13:14:58,354:INFO:Preloading libraries
+2023-03-22 13:14:58,354:INFO:Preparing display monitor
+2023-03-22 13:15:31,766:INFO:Initializing predict_model()
+2023-03-22 13:15:31,766:INFO:predict_model(estimator=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C268153D0>]],
+         verbose=False), probability_threshold=None, encoded_labels=True, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None, drift_kwargs=None)
+2023-03-22 13:15:31,766:INFO:Checking exceptions
+2023-03-22 13:15:31,766:INFO:Preloading libraries
+2023-03-22 13:15:31,766:INFO:Preparing display monitor
+2023-03-22 13:16:22,076:INFO:Initializing plot_model()
+2023-03-22 13:16:22,077:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostRegressor object at 0x0000019C18D08640>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature_all, plot_kwargs=None, save=False, scale=1, system=True)
+2023-03-22 13:16:22,077:INFO:Checking exceptions
+2023-03-22 13:16:22,077:INFO:Preparing display monitor
+2023-03-22 13:16:22,082:INFO:Preloading libraries
+2023-03-22 13:16:22,090:INFO:Copying training dataset
+2023-03-22 13:16:22,090:INFO:Copying test dataset
+2023-03-22 13:16:22,090:INFO:Plot type: feature_all
+2023-03-22 13:16:22,099:WARNING:No coef_ found. Trying feature_importances_
+2023-03-22 13:16:22,962:INFO:Visual Rendered Successfully
+2023-03-22 13:16:23,094:INFO:plot_model() succesfully completed......................................
+2023-03-22 13:16:55,316:INFO:PyCaret Supervised Module
+2023-03-22 13:16:55,316:INFO:ML Usecase: regression
+2023-03-22 13:16:55,316:INFO:version 2.3.10
+2023-03-22 13:16:55,316:INFO:Initializing setup()
+2023-03-22 13:16:55,316:INFO:setup(target=Total_Users, ml_usecase=regression, available_plots={'parameter': 'Hyperparameters', 'residuals': 'Residuals', 'error': 'Prediction Error', 'cooks': 'Cooks Distance', 'rfe': 'Feature Selection', 'learning': 'Learning Curve', 'manifold': 'Manifold Learning', 'vc': 'Validation Curve', 'feature': 'Feature Importance', 'feature_all': 'Feature Importance (All)', 'tree': 'Decision Tree', 'residuals_interactive': 'Interactive Residuals'}, train_size=0.8, test_data=None, preprocess=False, imputation_type=simple, iterative_imputation_iters=5, categorical_features=['Season', 'Year', 'Day_Period', 'Is_Holiday', 'Is_Working_Day', 'Weather_Condition'], categorical_imputation=constant, categorical_iterative_imputer=lightgbm, ordinal_features=None, high_cardinality_features=None, high_cardinality_method=frequency, numeric_features=['Temperature', 'Humidity', 'Wind_Speed', 'Cos_Hour', 'Sin_Hour', 'Cos_Day', 'Sin_Day', 'Cos_Weekday', 'Sin_Weekday', 'Cos_Week', 'Sin_Week', 'Cos_Month', 'Sin_Month', 'Temperature/Feel_Factor', 'Weather_Factor', 'Average_Hourly_Users', 'Min_Hourly_Users', 'Max_Hourly_Users', 'Average_Hourly_Temperature_Season', 'Min_Hourly_Temperature_Season', 'Max_Hourly_Temperature_Season', 'Average_Hourly_Humidity_Season', 'Min_Hourly_Humidity_Season', 'Max_Hourly_Humidity_Season', 'Average_Hourly_Wind_Speed_Season', 'Min_Hourly_Wind_Speed_Season', 'Max_Hourly_Wind_Speed_Season', 'Average_Daily_Users', 'Min_Daily_Users', 'Max_Daily_Users', 'Average_Daily_Users_Season', 'Min_Daily_Users_Season', 'Max_Daily_Users_Season', 'Average_Daily_Humidity_Season', 'Min_Daily_Humidity_Season', 'Max_Daily_Humidity_Season', 'Average_Daily_Wind_Speed_Season', 'Min_Daily_Wind_Speed_Season', 'Max_Daily_Wind_Speed_Season'], numeric_imputation=mean, numeric_iterative_imputer=lightgbm, date_features=None, ignore_features=None, normalize=False, normalize_method=zscore, transformation=False, transformation_method=yeo-johnson, handle_unknown_categorical=True, unknown_categorical_method=least_frequent, pca=False, pca_method=linear, pca_components=None, ignore_low_variance=False, combine_rare_levels=False, rare_level_threshold=0.1, bin_numeric_features=None, remove_outliers=False, outliers_threshold=0.05, remove_multicollinearity=False, multicollinearity_threshold=0.9, remove_perfect_collinearity=True, create_clusters=False, cluster_iter=20, polynomial_features=False, polynomial_degree=2, trigonometry_features=False, polynomial_threshold=0.1, group_features=None, group_names=None, feature_selection=True, feature_selection_threshold=0.1, feature_selection_method=classic, feature_interaction=False, feature_ratio=False, interaction_threshold=0.01, fix_imbalance=False, fix_imbalance_method=None, transform_target=False, transform_target_method=box-cox, data_split_shuffle=True, data_split_stratify=False, fold_strategy=kfold, fold=10, fold_shuffle=False, fold_groups=None, n_jobs=-1, use_gpu=True, custom_pipeline=None, html=True, session_id=123, log_experiment=False, experiment_name=None, experiment_custom_tags=None, log_plots=False, log_profile=False, log_data=False, silent=False, verbose=True, profile=False, profile_kwargs=None, display=None)
+2023-03-22 13:16:55,316:INFO:Checking environment
+2023-03-22 13:16:55,316:INFO:python_version: 3.8.16
+2023-03-22 13:16:55,316:INFO:python_build: ('default', 'Mar  2 2023 03:18:16')
+2023-03-22 13:16:55,316:INFO:machine: AMD64
+2023-03-22 13:16:55,316:INFO:platform: Windows-10-10.0.22621-SP0
+2023-03-22 13:16:55,323:INFO:Memory: svmem(total=16968585216, available=8009678848, percent=52.8, used=8958906368, free=8009678848)
+2023-03-22 13:16:55,323:INFO:Physical Core: 4
+2023-03-22 13:16:55,323:INFO:Logical Core: 8
+2023-03-22 13:16:55,323:INFO:Checking libraries
+2023-03-22 13:16:55,323:INFO:pd==1.5.3
+2023-03-22 13:16:55,323:INFO:numpy==1.20.3
+2023-03-22 13:16:55,323:INFO:sklearn==0.23.2
+2023-03-22 13:16:55,323:INFO:lightgbm==3.3.5
+2023-03-22 13:16:55,323:INFO:catboost==1.1.1
+2023-03-22 13:16:55,323:WARNING:xgboost not found
+2023-03-22 13:16:55,323:INFO:mlflow==2.2.1
+2023-03-22 13:16:55,323:INFO:Checking Exceptions
+2023-03-22 13:16:55,327:INFO:Declaring global variables
+2023-03-22 13:16:55,327:INFO:USI: 0a9a
+2023-03-22 13:16:55,327:INFO:pycaret_globals: {'fix_imbalance_param', 'imputation_regressor', 'create_model_container', 'iterative_imputation_iters_param', 'log_plots_param', '_all_metrics', 'X_test', '_all_models', 'logging_param', 'fold_generator', 'fold_groups_param_full', '_ml_usecase', 'USI', 'target_param', '_gpu_n_jobs_param', 'y_train', 'X_train', 'display_container', 'pycaret_globals', 'data_before_preprocess', 'exp_name_log', 'gpu_param', 'imputation_classifier', 'master_model_container', '_available_plots', 'html_param', 'dashboard_logger', 'y', 'fix_imbalance_method_param', 'transform_target_method_param', 'experiment__', 'X', 'n_jobs_param', '_all_models_internal', 'prep_pipe', 'fold_shuffle_param', 'stratify_param', 'seed', 'transform_target_param', 'fold_groups_param', 'fold_param', 'y_test', '_internal_pipeline'}
+2023-03-22 13:16:55,328:INFO:Preparing display monitor
+2023-03-22 13:16:55,328:INFO:Preparing display monitor
+2023-03-22 13:16:55,347:INFO:Importing libraries
+2023-03-22 13:16:55,347:INFO:Copying data for preprocessing
+2023-03-22 13:16:55,366:INFO:Declaring preprocessing parameters
+2023-03-22 13:16:55,368:WARNING:cuML not found
+2023-03-22 13:16:55,368:WARNING:cuML is outdated or not found. Required version is >=0.15, got 1.1.1
+2023-03-22 13:16:55,375:INFO:Creating preprocessing pipeline
+2023-03-22 13:16:55,407:INFO:Preprocessing pipeline created successfully
+2023-03-22 13:16:55,407:ERROR:(Process Exit): setup has been interupted with user command 'quit'. setup must rerun.
+2023-03-22 13:16:55,407:INFO:Creating global containers
+2023-03-22 13:16:55,407:INFO:Internal pipeline: Pipeline(memory=None, steps=[('empty_step', 'passthrough')], verbose=False)
+2023-03-22 13:16:58,873:WARNING:Couldn't import cuml.linear_model.LinearRegression
+2023-03-22 13:16:58,873:WARNING:Couldn't import cuml.linear_model.Lasso
+2023-03-22 13:16:58,889:WARNING:Couldn't import cuml.linear_model.Ridge
+2023-03-22 13:16:58,905:WARNING:Couldn't import cuml.linear_model.ElasticNet
+2023-03-22 13:16:59,049:WARNING:Couldn't import cuml.svm.SVR
+2023-03-22 13:16:59,162:WARNING:Couldn't import cuml.neighbors.KNeighborsRegressor
+2023-03-22 13:16:59,162:WARNING:Couldn't import cuml.ensemble
+2023-03-22 13:16:59,170:WARNING:Couldn't import xgboost.XGBRegressor
+2023-03-22 13:16:59,202:WARNING:Couldn't import cuml.linear_model.LinearRegression
+2023-03-22 13:16:59,202:WARNING:Couldn't import cuml.linear_model.Lasso
+2023-03-22 13:16:59,221:WARNING:Couldn't import cuml.linear_model.Ridge
+2023-03-22 13:16:59,243:WARNING:Couldn't import cuml.linear_model.ElasticNet
+2023-03-22 13:16:59,422:WARNING:Couldn't import cuml.svm.SVR
+2023-03-22 13:16:59,570:WARNING:Couldn't import cuml.neighbors.KNeighborsRegressor
+2023-03-22 13:16:59,570:WARNING:Couldn't import cuml.ensemble
+2023-03-22 13:16:59,578:WARNING:Couldn't import xgboost.XGBRegressor
+2023-03-22 13:16:59,603:INFO:Creating grid variables
+2023-03-22 13:16:59,637:INFO:create_model_container: 0
+2023-03-22 13:16:59,637:INFO:master_model_container: 0
+2023-03-22 13:16:59,637:INFO:display_container: 1
+2023-03-22 13:16:59,647:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Temperature_Season',
+                                                          'Max_Hourly_Temperature_Season',
+                                                          'Average_Hourly_Humidity_Season',
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users',
+                                      time_features=[]))],
+         verbose=False)
+2023-03-22 13:16:59,647:INFO:setup() succesfully completed......................................
+2023-03-22 13:17:08,836:INFO:Initializing compare_models()
+2023-03-22 13:17:08,836:INFO:compare_models(include=['et', 'catboost'], fold=10, round=4, cross_validation=True, sort=RMSE, n_select=2, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, experiment_custom_tags=None, probability_threshold=None, verbose=True, display=None, exclude=None)
+2023-03-22 13:17:08,836:INFO:Checking exceptions
+2023-03-22 13:17:08,836:INFO:Preparing display monitor
+2023-03-22 13:17:08,836:INFO:Preparing display monitor
+2023-03-22 13:17:08,908:INFO:Initializing Extra Trees Regressor
+2023-03-22 13:17:08,908:INFO:Total runtime is 0.0 minutes
+2023-03-22 13:17:08,940:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:17:08,940:INFO:Initializing create_model()
+2023-03-22 13:17:08,940:INFO:create_model(estimator=et, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C18C9D3A0>, return_train_score=False, kwargs={})
+2023-03-22 13:17:08,940:INFO:Checking exceptions
+2023-03-22 13:17:08,940:INFO:Importing libraries
+2023-03-22 13:17:08,940:INFO:Copying training dataset
+2023-03-22 13:17:08,948:INFO:Defining folds
+2023-03-22 13:17:08,948:INFO:Declaring metric variables
+2023-03-22 13:17:08,972:INFO:Importing untrained model
+2023-03-22 13:17:08,997:INFO:Extra Trees Regressor Imported succesfully
+2023-03-22 13:17:09,055:INFO:Starting cross validation
+2023-03-22 13:17:09,055:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:18:26,511:INFO:Calculating mean and std
+2023-03-22 13:18:26,511:INFO:Creating metrics dataframe
+2023-03-22 13:18:26,532:INFO:Uploading results into container
+2023-03-22 13:18:26,535:INFO:Uploading model into container now
+2023-03-22 13:18:26,535:INFO:create_model_container: 1
+2023-03-22 13:18:26,535:INFO:master_model_container: 1
+2023-03-22 13:18:26,535:INFO:display_container: 2
+2023-03-22 13:18:26,535:INFO:ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:18:26,535:INFO:create_model() succesfully completed......................................
+2023-03-22 13:18:26,695:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:18:26,695:INFO:Creating metrics dataframe
+2023-03-22 13:18:26,727:INFO:Initializing CatBoost Regressor
+2023-03-22 13:18:26,727:INFO:Total runtime is 1.2969766934712728 minutes
+2023-03-22 13:18:26,751:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:18:26,751:INFO:Initializing create_model()
+2023-03-22 13:18:26,751:INFO:create_model(estimator=catboost, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C18C9D3A0>, return_train_score=False, kwargs={})
+2023-03-22 13:18:26,758:INFO:Checking exceptions
+2023-03-22 13:18:26,758:INFO:Importing libraries
+2023-03-22 13:18:26,758:INFO:Copying training dataset
+2023-03-22 13:18:26,762:INFO:Defining folds
+2023-03-22 13:18:26,764:INFO:Declaring metric variables
+2023-03-22 13:18:26,784:INFO:Importing untrained model
+2023-03-22 13:18:26,800:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 13:18:26,849:INFO:Starting cross validation
+2023-03-22 13:18:26,849:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:19:34,146:INFO:Calculating mean and std
+2023-03-22 13:19:34,154:INFO:Creating metrics dataframe
+2023-03-22 13:19:34,154:INFO:Uploading results into container
+2023-03-22 13:19:34,154:INFO:Uploading model into container now
+2023-03-22 13:19:34,154:INFO:create_model_container: 2
+2023-03-22 13:19:34,154:INFO:master_model_container: 2
+2023-03-22 13:19:34,154:INFO:display_container: 2
+2023-03-22 13:19:34,154:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C255EEF40>
+2023-03-22 13:19:34,154:INFO:create_model() succesfully completed......................................
+2023-03-22 13:19:34,264:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:19:34,264:INFO:Creating metrics dataframe
+2023-03-22 13:19:34,310:INFO:Initializing create_model()
+2023-03-22 13:19:34,310:INFO:create_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C255EEF40>, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:19:34,310:INFO:Checking exceptions
+2023-03-22 13:19:34,313:INFO:Importing libraries
+2023-03-22 13:19:34,313:INFO:Copying training dataset
+2023-03-22 13:19:34,313:INFO:Defining folds
+2023-03-22 13:19:34,313:INFO:Declaring metric variables
+2023-03-22 13:19:34,313:INFO:Importing untrained model
+2023-03-22 13:19:34,313:INFO:Declaring custom model
+2023-03-22 13:19:34,313:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 13:19:34,313:INFO:Cross validation set to False
+2023-03-22 13:19:34,313:INFO:Fitting Model
+2023-03-22 13:19:40,298:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C184C54C0>
+2023-03-22 13:19:40,298:INFO:create_models() succesfully completed......................................
+2023-03-22 13:19:40,459:INFO:Initializing create_model()
+2023-03-22 13:19:40,459:INFO:create_model(estimator=ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False), fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:19:40,459:INFO:Checking exceptions
+2023-03-22 13:19:40,459:INFO:Importing libraries
+2023-03-22 13:19:40,459:INFO:Copying training dataset
+2023-03-22 13:19:40,467:INFO:Defining folds
+2023-03-22 13:19:40,467:INFO:Declaring metric variables
+2023-03-22 13:19:40,468:INFO:Importing untrained model
+2023-03-22 13:19:40,468:INFO:Declaring custom model
+2023-03-22 13:19:40,468:INFO:Extra Trees Regressor Imported succesfully
+2023-03-22 13:19:40,468:INFO:Cross validation set to False
+2023-03-22 13:19:40,468:INFO:Fitting Model
+2023-03-22 13:19:44,799:INFO:ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)
+2023-03-22 13:19:44,799:INFO:create_models() succesfully completed......................................
+2023-03-22 13:19:44,982:INFO:create_model_container: 2
+2023-03-22 13:19:44,982:INFO:master_model_container: 2
+2023-03-22 13:19:44,982:INFO:display_container: 2
+2023-03-22 13:19:44,982:INFO:[<catboost.core.CatBoostRegressor object at 0x0000019C184C54C0>, ExtraTreesRegressor(bootstrap=False, ccp_alpha=0.0, criterion='mse',
+                    max_depth=None, max_features='auto', max_leaf_nodes=None,
+                    max_samples=None, min_impurity_decrease=0.0,
+                    min_impurity_split=None, min_samples_leaf=1,
+                    min_samples_split=2, min_weight_fraction_leaf=0.0,
+                    n_estimators=100, n_jobs=-1, oob_score=False,
+                    random_state=123, verbose=0, warm_start=False)]
+2023-03-22 13:19:44,982:INFO:compare_models() succesfully completed......................................
+2023-03-22 13:19:45,048:INFO:Initializing tune_model()
+2023-03-22 13:19:45,048:INFO:tune_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C184C54C0>, fold=10, round=4, n_iter=10, custom_grid=None, optimize=RMSE, custom_scorer=None, search_library=scikit-learn, search_algorithm=random, early_stopping=False, early_stopping_max_iters=10, choose_better=False, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=True, display=None, return_train_score=False, kwargs={})
+2023-03-22 13:19:45,048:INFO:Checking exceptions
+2023-03-22 13:19:45,048:INFO:Preparing display monitor
+2023-03-22 13:19:45,105:INFO:Copying training dataset
+2023-03-22 13:19:45,113:INFO:Checking base model
+2023-03-22 13:19:45,113:INFO:Base model : CatBoost Regressor
+2023-03-22 13:19:45,137:INFO:Declaring metric variables
+2023-03-22 13:19:45,161:INFO:Defining Hyperparameters
+2023-03-22 13:19:45,307:INFO:Tuning with n_jobs=-1
+2023-03-22 13:19:45,307:INFO:Initializing RandomizedSearchCV
+2023-03-22 13:20:31,850:INFO:best_params: {'actual_estimator__random_strength': 0.2, 'actual_estimator__n_estimators': 180, 'actual_estimator__l2_leaf_reg': 30, 'actual_estimator__eta': 0.4, 'actual_estimator__depth': 8}
+2023-03-22 13:20:31,850:INFO:Hyperparameter search completed
+2023-03-22 13:20:31,850:INFO:SubProcess create_model() called ==================================
+2023-03-22 13:20:31,850:INFO:Initializing create_model()
+2023-03-22 13:20:31,850:INFO:create_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C255EE2E0>, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=True, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C186709A0>, return_train_score=False, kwargs={'random_strength': 0.2, 'n_estimators': 180, 'l2_leaf_reg': 30, 'eta': 0.4, 'depth': 8})
+2023-03-22 13:20:31,850:INFO:Checking exceptions
+2023-03-22 13:20:31,850:INFO:Importing libraries
+2023-03-22 13:20:31,850:INFO:Copying training dataset
+2023-03-22 13:20:31,850:INFO:Defining folds
+2023-03-22 13:20:31,850:INFO:Declaring metric variables
+2023-03-22 13:20:31,866:INFO:Importing untrained model
+2023-03-22 13:20:31,866:INFO:Declaring custom model
+2023-03-22 13:20:31,881:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 13:20:31,910:INFO:Starting cross validation
+2023-03-22 13:20:31,910:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 13:20:54,419:INFO:Calculating mean and std
+2023-03-22 13:20:54,419:INFO:Creating metrics dataframe
+2023-03-22 13:20:54,443:INFO:Finalizing model
+2023-03-22 13:20:56,158:INFO:Uploading results into container
+2023-03-22 13:20:56,158:INFO:Uploading model into container now
+2023-03-22 13:20:56,158:INFO:create_model_container: 3
+2023-03-22 13:20:56,158:INFO:master_model_container: 3
+2023-03-22 13:20:56,158:INFO:display_container: 3
+2023-03-22 13:20:56,158:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C26840370>
+2023-03-22 13:20:56,158:INFO:create_model() succesfully completed......................................
+2023-03-22 13:20:56,262:INFO:SubProcess create_model() end ==================================
+2023-03-22 13:20:56,278:INFO:create_model_container: 3
+2023-03-22 13:20:56,278:INFO:master_model_container: 3
+2023-03-22 13:20:56,278:INFO:display_container: 3
+2023-03-22 13:20:56,278:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C26840370>
+2023-03-22 13:20:56,278:INFO:tune_model() succesfully completed......................................
+2023-03-22 13:20:56,418:INFO:Initializing save_model()
+2023-03-22 13:20:56,418:INFO:save_model(model=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>, model_name=bike_model, prep_pipe_=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Temperature_Season',
+                                                          'Max_Hourly_Temperature_Season',
+                                                          'Average_Hourly_Humidity_Season',
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users',
+                                      time_features=[]))],
+         verbose=False), verbose=True, kwargs={})
+2023-03-22 13:20:56,419:INFO:Adding model into prep_pipe
+2023-03-22 13:20:56,427:INFO:bike_model.pkl saved in current working directory
+2023-03-22 13:20:56,436:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C26840370>]],
+         verbose=False)
+2023-03-22 13:20:56,436:INFO:save_model() successfully completed......................................
+2023-03-22 13:20:56,555:INFO:Initializing load_model()
+2023-03-22 13:20:56,555:INFO:load_model(model_name=bike_model, platform=None, authentication=None, verbose=True)
+2023-03-22 13:20:56,593:INFO:Initializing predict_model()
+2023-03-22 13:20:56,593:INFO:predict_model(estimator=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C255EEA60>]],
+         verbose=False), probability_threshold=None, encoded_labels=True, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None, drift_kwargs=None)
+2023-03-22 13:20:56,593:INFO:Checking exceptions
+2023-03-22 13:20:56,593:INFO:Preloading libraries
+2023-03-22 13:20:56,593:INFO:Preparing display monitor
+2023-03-22 13:20:56,793:INFO:Initializing plot_model()
+2023-03-22 13:20:56,793:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature_all, plot_kwargs=None, save=False, scale=1, system=True)
+2023-03-22 13:20:56,793:INFO:Checking exceptions
+2023-03-22 13:20:56,801:INFO:Preparing display monitor
+2023-03-22 13:20:56,810:INFO:Preloading libraries
+2023-03-22 13:20:56,810:INFO:Copying training dataset
+2023-03-22 13:20:56,814:INFO:Copying test dataset
+2023-03-22 13:20:56,818:INFO:Plot type: feature_all
+2023-03-22 13:20:56,820:WARNING:No coef_ found. Trying feature_importances_
+2023-03-22 13:20:57,821:INFO:Visual Rendered Successfully
+2023-03-22 13:20:57,991:INFO:plot_model() succesfully completed......................................
+2023-03-22 13:22:04,435:INFO:Initializing save_model()
+2023-03-22 13:22:04,435:INFO:save_model(model=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>, model_name=bike_model, prep_pipe_=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Temperature_Season',
+                                                          'Max_Hourly_Temperature_Season',
+                                                          'Average_Hourly_Humidity_Season',
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users',
+                                      time_features=[]))],
+         verbose=False), verbose=True, kwargs={})
+2023-03-22 13:22:04,435:INFO:Adding model into prep_pipe
+2023-03-22 13:22:04,443:INFO:bike_model.pkl saved in current working directory
+2023-03-22 13:22:04,454:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C26840370>]],
+         verbose=False)
+2023-03-22 13:22:04,454:INFO:save_model() successfully completed......................................
+2023-03-22 13:22:05,663:INFO:Initializing load_model()
+2023-03-22 13:22:05,671:INFO:load_model(model_name=bike_model, platform=None, authentication=None, verbose=True)
+2023-03-22 13:22:06,450:INFO:Initializing predict_model()
+2023-03-22 13:22:06,450:INFO:predict_model(estimator=Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users', time_features=[])),
+                ['trained_model',
+                 <catboost.core.CatBoostRegressor object at 0x0000019C3DD5C2E0>]],
+         verbose=False), probability_threshold=None, encoded_labels=True, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None, drift_kwargs=None)
+2023-03-22 13:22:06,450:INFO:Checking exceptions
+2023-03-22 13:22:06,458:INFO:Preloading libraries
+2023-03-22 13:22:06,458:INFO:Preparing display monitor
+2023-03-22 13:22:10,466:INFO:Initializing plot_model()
+2023-03-22 13:22:10,466:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature_all, plot_kwargs=None, save=False, scale=1, system=True)
+2023-03-22 13:22:10,466:INFO:Checking exceptions
+2023-03-22 13:22:10,466:INFO:Preparing display monitor
+2023-03-22 13:22:10,477:INFO:Preloading libraries
+2023-03-22 13:22:10,484:INFO:Copying training dataset
+2023-03-22 13:22:10,484:INFO:Copying test dataset
+2023-03-22 13:22:10,492:INFO:Plot type: feature_all
+2023-03-22 13:22:10,497:WARNING:No coef_ found. Trying feature_importances_
+2023-03-22 13:22:11,624:INFO:Visual Rendered Successfully
+2023-03-22 13:22:11,769:INFO:plot_model() succesfully completed......................................
+2023-03-22 13:23:24,684:INFO:Initializing get_config()
+2023-03-22 13:23:24,684:INFO:get_config(variable=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>)
+2023-03-22 13:24:10,184:INFO:Initializing get_config()
+2023-03-22 13:24:10,184:INFO:get_config(variable=<catboost.core.CatBoostRegressor object at 0x0000019C184C54C0>)
+2023-03-22 13:28:36,366:INFO:Initializing get_config()
+2023-03-22 13:28:36,366:INFO:get_config(variable=tuned_top1)
+2023-03-22 13:28:48,338:INFO:Initializing get_config()
+2023-03-22 13:28:48,338:INFO:get_config(variable=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>)
+2023-03-22 14:00:28,947:INFO:PyCaret Supervised Module
+2023-03-22 14:00:28,948:INFO:ML Usecase: regression
+2023-03-22 14:00:28,948:INFO:version 2.3.10
+2023-03-22 14:00:28,948:INFO:Initializing setup()
+2023-03-22 14:00:28,948:INFO:setup(target=Total_Users, ml_usecase=regression, available_plots={'parameter': 'Hyperparameters', 'residuals': 'Residuals', 'error': 'Prediction Error', 'cooks': 'Cooks Distance', 'rfe': 'Feature Selection', 'learning': 'Learning Curve', 'manifold': 'Manifold Learning', 'vc': 'Validation Curve', 'feature': 'Feature Importance', 'feature_all': 'Feature Importance (All)', 'tree': 'Decision Tree', 'residuals_interactive': 'Interactive Residuals'}, train_size=0.8, test_data=None, preprocess=False, imputation_type=simple, iterative_imputation_iters=5, categorical_features=['Season', 'Year', 'Day_Period', 'Is_Holiday', 'Is_Working_Day', 'Weather_Condition'], categorical_imputation=constant, categorical_iterative_imputer=lightgbm, ordinal_features=None, high_cardinality_features=None, high_cardinality_method=frequency, numeric_features=['Temperature', 'Humidity', 'Wind_Speed', 'Cos_Hour', 'Sin_Hour', 'Cos_Day', 'Sin_Day', 'Cos_Weekday', 'Sin_Weekday', 'Cos_Week', 'Sin_Week', 'Cos_Month', 'Sin_Month', 'Temperature/Feel_Factor', 'Weather_Factor', 'Average_Hourly_Users', 'Min_Hourly_Users', 'Max_Hourly_Users', 'Average_Hourly_Temperature_Season', 'Min_Hourly_Temperature_Season', 'Max_Hourly_Temperature_Season', 'Average_Hourly_Humidity_Season', 'Min_Hourly_Humidity_Season', 'Max_Hourly_Humidity_Season', 'Average_Hourly_Wind_Speed_Season', 'Min_Hourly_Wind_Speed_Season', 'Max_Hourly_Wind_Speed_Season', 'Average_Daily_Users', 'Min_Daily_Users', 'Max_Daily_Users', 'Average_Daily_Users_Season', 'Min_Daily_Users_Season', 'Max_Daily_Users_Season', 'Average_Daily_Humidity_Season', 'Min_Daily_Humidity_Season', 'Max_Daily_Humidity_Season', 'Average_Daily_Wind_Speed_Season', 'Min_Daily_Wind_Speed_Season', 'Max_Daily_Wind_Speed_Season'], numeric_imputation=mean, numeric_iterative_imputer=lightgbm, date_features=None, ignore_features=None, normalize=False, normalize_method=zscore, transformation=False, transformation_method=yeo-johnson, handle_unknown_categorical=True, unknown_categorical_method=least_frequent, pca=False, pca_method=linear, pca_components=None, ignore_low_variance=False, combine_rare_levels=False, rare_level_threshold=0.1, bin_numeric_features=None, remove_outliers=False, outliers_threshold=0.05, remove_multicollinearity=False, multicollinearity_threshold=0.9, remove_perfect_collinearity=True, create_clusters=False, cluster_iter=20, polynomial_features=False, polynomial_degree=2, trigonometry_features=False, polynomial_threshold=0.1, group_features=None, group_names=None, feature_selection=True, feature_selection_threshold=0.1, feature_selection_method=classic, feature_interaction=False, feature_ratio=False, interaction_threshold=0.01, fix_imbalance=False, fix_imbalance_method=None, transform_target=False, transform_target_method=box-cox, data_split_shuffle=True, data_split_stratify=False, fold_strategy=kfold, fold=10, fold_shuffle=False, fold_groups=None, n_jobs=-1, use_gpu=True, custom_pipeline=None, html=True, session_id=123, log_experiment=False, experiment_name=None, experiment_custom_tags=None, log_plots=False, log_profile=False, log_data=False, silent=False, verbose=True, profile=False, profile_kwargs=None, display=None)
+2023-03-22 14:00:28,948:INFO:Checking environment
+2023-03-22 14:00:28,948:INFO:python_version: 3.8.16
+2023-03-22 14:00:28,948:INFO:python_build: ('default', 'Mar  2 2023 03:18:16')
+2023-03-22 14:00:28,948:INFO:machine: AMD64
+2023-03-22 14:00:28,948:INFO:platform: Windows-10-10.0.22621-SP0
+2023-03-22 14:00:28,948:INFO:Memory: svmem(total=16968585216, available=8273952768, percent=51.2, used=8694632448, free=8273952768)
+2023-03-22 14:00:28,948:INFO:Physical Core: 4
+2023-03-22 14:00:28,948:INFO:Logical Core: 8
+2023-03-22 14:00:28,948:INFO:Checking libraries
+2023-03-22 14:00:28,948:INFO:pd==1.5.3
+2023-03-22 14:00:28,948:INFO:numpy==1.20.3
+2023-03-22 14:00:28,948:INFO:sklearn==0.23.2
+2023-03-22 14:00:28,954:INFO:lightgbm==3.3.5
+2023-03-22 14:00:28,954:INFO:catboost==1.1.1
+2023-03-22 14:00:28,958:WARNING:xgboost not found
+2023-03-22 14:00:28,958:INFO:mlflow==2.2.1
+2023-03-22 14:00:28,958:INFO:Checking Exceptions
+2023-03-22 14:00:28,961:INFO:Declaring global variables
+2023-03-22 14:00:28,961:INFO:USI: a864
+2023-03-22 14:00:28,961:INFO:pycaret_globals: {'fix_imbalance_param', 'imputation_regressor', 'create_model_container', 'iterative_imputation_iters_param', 'log_plots_param', '_all_metrics', 'X_test', '_all_models', 'logging_param', 'fold_generator', 'fold_groups_param_full', '_ml_usecase', 'USI', 'target_param', '_gpu_n_jobs_param', 'y_train', 'X_train', 'display_container', 'pycaret_globals', 'data_before_preprocess', 'exp_name_log', 'gpu_param', 'imputation_classifier', 'master_model_container', '_available_plots', 'html_param', 'dashboard_logger', 'y', 'fix_imbalance_method_param', 'transform_target_method_param', 'experiment__', 'X', 'n_jobs_param', '_all_models_internal', 'prep_pipe', 'fold_shuffle_param', 'stratify_param', 'seed', 'transform_target_param', 'fold_groups_param', 'fold_param', 'y_test', '_internal_pipeline'}
+2023-03-22 14:00:28,961:INFO:Preparing display monitor
+2023-03-22 14:00:28,961:INFO:Preparing display monitor
+2023-03-22 14:00:28,994:INFO:Importing libraries
+2023-03-22 14:00:28,994:INFO:Copying data for preprocessing
+2023-03-22 14:00:29,015:INFO:Declaring preprocessing parameters
+2023-03-22 14:00:29,015:WARNING:cuML not found
+2023-03-22 14:00:29,015:WARNING:cuML is outdated or not found. Required version is >=0.15, got 1.1.1
+2023-03-22 14:00:29,027:INFO:Creating preprocessing pipeline
+2023-03-22 14:00:29,073:INFO:Preprocessing pipeline created successfully
+2023-03-22 14:00:29,073:ERROR:(Process Exit): setup has been interupted with user command 'quit'. setup must rerun.
+2023-03-22 14:00:29,073:INFO:Creating global containers
+2023-03-22 14:00:29,073:INFO:Internal pipeline: Pipeline(memory=None, steps=[('empty_step', 'passthrough')], verbose=False)
+2023-03-22 14:00:32,961:WARNING:Couldn't import cuml.linear_model.LinearRegression
+2023-03-22 14:00:32,961:WARNING:Couldn't import cuml.linear_model.Lasso
+2023-03-22 14:00:32,976:WARNING:Couldn't import cuml.linear_model.Ridge
+2023-03-22 14:00:32,992:WARNING:Couldn't import cuml.linear_model.ElasticNet
+2023-03-22 14:00:33,212:WARNING:Couldn't import cuml.svm.SVR
+2023-03-22 14:00:33,375:WARNING:Couldn't import cuml.neighbors.KNeighborsRegressor
+2023-03-22 14:00:33,375:WARNING:Couldn't import cuml.ensemble
+2023-03-22 14:00:33,375:WARNING:Couldn't import xgboost.XGBRegressor
+2023-03-22 14:00:33,416:WARNING:Couldn't import cuml.linear_model.LinearRegression
+2023-03-22 14:00:33,416:WARNING:Couldn't import cuml.linear_model.Lasso
+2023-03-22 14:00:33,440:WARNING:Couldn't import cuml.linear_model.Ridge
+2023-03-22 14:00:33,464:WARNING:Couldn't import cuml.linear_model.ElasticNet
+2023-03-22 14:00:33,673:WARNING:Couldn't import cuml.svm.SVR
+2023-03-22 14:00:33,833:WARNING:Couldn't import cuml.neighbors.KNeighborsRegressor
+2023-03-22 14:00:33,833:WARNING:Couldn't import cuml.ensemble
+2023-03-22 14:00:33,842:WARNING:Couldn't import xgboost.XGBRegressor
+2023-03-22 14:00:33,872:INFO:Creating grid variables
+2023-03-22 14:00:33,898:INFO:create_model_container: 0
+2023-03-22 14:00:33,898:INFO:master_model_container: 0
+2023-03-22 14:00:33,898:INFO:display_container: 1
+2023-03-22 14:00:33,915:INFO:Pipeline(memory=None,
+         steps=[('dtypes',
+                 DataTypes_Auto_infer(categorical_features=['Season', 'Year',
+                                                            'Day_Period',
+                                                            'Is_Holiday',
+                                                            'Is_Working_Day',
+                                                            'Weather_Condition'],
+                                      display_types=True, features_todrop=[],
+                                      id_columns=[], ml_usecase='regression',
+                                      numerical_features=['Temperature',
+                                                          'Humidity',
+                                                          'Wind_Speed',
+                                                          'Cos_Hour',
+                                                          'Sin_Hour', 'Cos_Day',
+                                                          'Sin_Day',
+                                                          'Cos_Weekday'...
+                                                          'Min_Hourly_Temperature_Season',
+                                                          'Max_Hourly_Temperature_Season',
+                                                          'Average_Hourly_Humidity_Season',
+                                                          'Min_Hourly_Humidity_Season',
+                                                          'Max_Hourly_Humidity_Season',
+                                                          'Average_Hourly_Wind_Speed_Season',
+                                                          'Min_Hourly_Wind_Speed_Season',
+                                                          'Max_Hourly_Wind_Speed_Season',
+                                                          'Average_Daily_Users',
+                                                          'Min_Daily_Users',
+                                                          'Max_Daily_Users', ...],
+                                      target='Total_Users',
+                                      time_features=[]))],
+         verbose=False)
+2023-03-22 14:00:33,915:INFO:setup() succesfully completed......................................
+2023-03-22 14:00:34,280:INFO:Initializing compare_models()
+2023-03-22 14:00:34,282:INFO:compare_models(include=['catboost'], fold=10, round=4, cross_validation=True, sort=RMSE, n_select=1, budget_time=None, turbo=True, errors=ignore, fit_kwargs=None, groups=None, experiment_custom_tags=None, probability_threshold=None, verbose=True, display=None, exclude=None)
+2023-03-22 14:00:34,282:INFO:Checking exceptions
+2023-03-22 14:00:34,284:INFO:Preparing display monitor
+2023-03-22 14:00:34,284:INFO:Preparing display monitor
+2023-03-22 14:00:34,354:INFO:Initializing CatBoost Regressor
+2023-03-22 14:00:34,354:INFO:Total runtime is 0.0 minutes
+2023-03-22 14:00:34,386:INFO:SubProcess create_model() called ==================================
+2023-03-22 14:00:34,386:INFO:Initializing create_model()
+2023-03-22 14:00:34,386:INFO:create_model(estimator=catboost, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=False, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C1ACAB5B0>, return_train_score=False, kwargs={})
+2023-03-22 14:00:34,386:INFO:Checking exceptions
+2023-03-22 14:00:34,386:INFO:Importing libraries
+2023-03-22 14:00:34,391:INFO:Copying training dataset
+2023-03-22 14:00:34,393:INFO:Defining folds
+2023-03-22 14:00:34,393:INFO:Declaring metric variables
+2023-03-22 14:00:34,417:INFO:Importing untrained model
+2023-03-22 14:00:34,442:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 14:00:34,495:INFO:Starting cross validation
+2023-03-22 14:00:34,498:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 14:01:56,683:INFO:Calculating mean and std
+2023-03-22 14:01:56,698:INFO:Creating metrics dataframe
+2023-03-22 14:01:56,709:INFO:Uploading results into container
+2023-03-22 14:01:56,711:INFO:Uploading model into container now
+2023-03-22 14:01:56,711:INFO:create_model_container: 1
+2023-03-22 14:01:56,711:INFO:master_model_container: 1
+2023-03-22 14:01:56,712:INFO:display_container: 2
+2023-03-22 14:01:56,712:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C1D457730>
+2023-03-22 14:01:56,712:INFO:create_model() succesfully completed......................................
+2023-03-22 14:01:57,002:INFO:SubProcess create_model() end ==================================
+2023-03-22 14:01:57,002:INFO:Creating metrics dataframe
+2023-03-22 14:01:57,069:INFO:Initializing create_model()
+2023-03-22 14:01:57,069:INFO:create_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C1D457730>, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, verbose=False, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=None, return_train_score=False, kwargs={})
+2023-03-22 14:01:57,069:INFO:Checking exceptions
+2023-03-22 14:01:57,074:INFO:Importing libraries
+2023-03-22 14:01:57,075:INFO:Copying training dataset
+2023-03-22 14:01:57,078:INFO:Defining folds
+2023-03-22 14:01:57,078:INFO:Declaring metric variables
+2023-03-22 14:01:57,078:INFO:Importing untrained model
+2023-03-22 14:01:57,078:INFO:Declaring custom model
+2023-03-22 14:01:57,078:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 14:01:57,078:INFO:Cross validation set to False
+2023-03-22 14:01:57,078:INFO:Fitting Model
+2023-03-22 14:02:02,126:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C18688430>
+2023-03-22 14:02:02,126:INFO:create_models() succesfully completed......................................
+2023-03-22 14:02:02,422:INFO:create_model_container: 1
+2023-03-22 14:02:02,422:INFO:master_model_container: 1
+2023-03-22 14:02:02,422:INFO:display_container: 2
+2023-03-22 14:02:02,422:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C18688430>
+2023-03-22 14:02:02,422:INFO:compare_models() succesfully completed......................................
+2023-03-22 14:02:02,446:INFO:Initializing tune_model()
+2023-03-22 14:02:02,446:INFO:tune_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C18688430>, fold=10, round=4, n_iter=10, custom_grid=None, optimize=RMSE, custom_scorer=None, search_library=scikit-learn, search_algorithm=random, early_stopping=False, early_stopping_max_iters=10, choose_better=False, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=True, display=None, return_train_score=False, kwargs={})
+2023-03-22 14:02:02,446:INFO:Checking exceptions
+2023-03-22 14:02:02,446:INFO:Preparing display monitor
+2023-03-22 14:02:02,538:INFO:Copying training dataset
+2023-03-22 14:02:02,544:INFO:Checking base model
+2023-03-22 14:02:02,544:INFO:Base model : CatBoost Regressor
+2023-03-22 14:02:02,576:INFO:Declaring metric variables
+2023-03-22 14:02:02,597:INFO:Defining Hyperparameters
+2023-03-22 14:02:02,858:INFO:Tuning with n_jobs=-1
+2023-03-22 14:02:02,858:INFO:Initializing RandomizedSearchCV
+2023-03-22 14:02:53,187:INFO:best_params: {'actual_estimator__random_strength': 0.2, 'actual_estimator__n_estimators': 180, 'actual_estimator__l2_leaf_reg': 30, 'actual_estimator__eta': 0.4, 'actual_estimator__depth': 8}
+2023-03-22 14:02:53,187:INFO:Hyperparameter search completed
+2023-03-22 14:02:53,191:INFO:SubProcess create_model() called ==================================
+2023-03-22 14:02:53,192:INFO:Initializing create_model()
+2023-03-22 14:02:53,193:INFO:create_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C18688670>, fold=KFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, verbose=True, system=False, metrics=None, experiment_custom_tags=None, add_to_model_list=True, probability_threshold=None, display=<pycaret.internal.Display.Display object at 0x0000019C18607550>, return_train_score=False, kwargs={'random_strength': 0.2, 'n_estimators': 180, 'l2_leaf_reg': 30, 'eta': 0.4, 'depth': 8})
+2023-03-22 14:02:53,193:INFO:Checking exceptions
+2023-03-22 14:02:53,193:INFO:Importing libraries
+2023-03-22 14:02:53,193:INFO:Copying training dataset
+2023-03-22 14:02:53,193:INFO:Defining folds
+2023-03-22 14:02:53,193:INFO:Declaring metric variables
+2023-03-22 14:02:53,218:INFO:Importing untrained model
+2023-03-22 14:02:53,218:INFO:Declaring custom model
+2023-03-22 14:02:53,241:INFO:CatBoost Regressor Imported succesfully
+2023-03-22 14:02:53,281:INFO:Starting cross validation
+2023-03-22 14:02:53,281:INFO:Cross validating with KFold(n_splits=10, random_state=None, shuffle=False), n_jobs=1
+2023-03-22 14:03:19,951:INFO:Calculating mean and std
+2023-03-22 14:03:19,952:INFO:Creating metrics dataframe
+2023-03-22 14:03:19,977:INFO:Finalizing model
+2023-03-22 14:03:21,776:INFO:Uploading results into container
+2023-03-22 14:03:21,776:INFO:Uploading model into container now
+2023-03-22 14:03:21,776:INFO:create_model_container: 2
+2023-03-22 14:03:21,776:INFO:master_model_container: 2
+2023-03-22 14:03:21,776:INFO:display_container: 3
+2023-03-22 14:03:21,776:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C26840940>
+2023-03-22 14:03:21,776:INFO:create_model() succesfully completed......................................
+2023-03-22 14:03:22,016:INFO:SubProcess create_model() end ==================================
+2023-03-22 14:03:22,045:INFO:create_model_container: 2
+2023-03-22 14:03:22,053:INFO:master_model_container: 2
+2023-03-22 14:03:22,055:INFO:display_container: 3
+2023-03-22 14:03:22,055:INFO:<catboost.core.CatBoostRegressor object at 0x0000019C26840940>
+2023-03-22 14:03:22,055:INFO:tune_model() succesfully completed......................................
+2023-03-22 14:03:22,393:INFO:Initializing predict_model()
+2023-03-22 14:03:22,396:INFO:predict_model(estimator=<catboost.core.CatBoostRegressor object at 0x0000019C26840940>, probability_threshold=None, encoded_labels=True, drift_report=False, raw_score=False, round=4, verbose=True, ml_usecase=MLUsecase.REGRESSION, display=None, drift_kwargs=None)
+2023-03-22 14:03:22,396:INFO:Checking exceptions
+2023-03-22 14:03:22,396:INFO:Preloading libraries
+2023-03-22 14:03:22,396:INFO:Preparing display monitor
+2023-03-22 14:03:22,824:INFO:Initializing plot_model()
+2023-03-22 14:03:22,824:INFO:plot_model(fold=None, use_train_data=False, verbose=True, is_in_evaluate=False, display=None, display_format=None, estimator=<catboost.core.CatBoostRegressor object at 0x0000019C26840370>, feature_name=None, fit_kwargs=None, groups=None, label=False, plot=feature_all, plot_kwargs=None, save=False, scale=1, system=True)
+2023-03-22 14:03:22,824:INFO:Checking exceptions
+2023-03-22 14:03:22,824:INFO:Preparing display monitor
+2023-03-22 14:03:22,846:INFO:Preloading libraries
+2023-03-22 14:03:22,854:INFO:Copying training dataset
+2023-03-22 14:03:22,857:INFO:Copying test dataset
+2023-03-22 14:03:22,862:INFO:Plot type: feature_all
+2023-03-22 14:03:22,867:WARNING:No coef_ found. Trying feature_importances_
+2023-03-22 14:03:24,210:INFO:Visual Rendered Successfully
+2023-03-22 14:03:24,516:INFO:plot_model() succesfully completed......................................

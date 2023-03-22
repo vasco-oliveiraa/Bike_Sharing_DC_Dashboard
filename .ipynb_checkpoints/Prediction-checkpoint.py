@@ -187,7 +187,7 @@ def Prediction(display=True):
     # Define the button
     if st.button('Predict'):
         # Predict the target value using the pre-trained model
-        y_pred = RF_Model(data)
+        y_pred = Model(data)
 
         # Display the predicted target value
         st.write('Predicted target value:', y_pred[0])
