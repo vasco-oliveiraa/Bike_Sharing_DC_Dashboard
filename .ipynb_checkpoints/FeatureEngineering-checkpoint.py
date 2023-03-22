@@ -276,7 +276,7 @@ def FeatureEngineering(display=False):
         # Display the styled DataFrame in Streamlit
         st.dataframe(styled_df, use_container_width=True)
         
-        selected_var = st.selectbox(label='Variable', options=list(var_code.keys()))
+        selected_var = st.selectbox(label='Select a feature to see the transformation and the reasoning behind it', options=list(var_code.keys()))
 
         if selected_var == 'None':
             st.write('')
@@ -296,7 +296,7 @@ def FeatureEngineering(display=False):
 
         st.write("Feature engineering is an ***essential*** part of the predictive model-building process  that involves ***transforming raw data into meaningful features*** for model training. It helps to ***improve model accuracy, reduce overfitting, and incorporate domain knowledge*** into the model building process. Through techniques such as data cleaning, dimensionality reduction, and feature selection, feature engineering ***enables the extraction of relevant information*** from complex datasets.") 
 
-        st.write("In this section, you will be able to see ***what transformations were made*** to the data in order to facilitate its understanding as well as to increase the model's predictive capability. In this sense, ***4 features were dropped, 5 features were kept, 10 features were transformed***, and ***26  new features were created***.  ***Not all the features*** that were created in this phase ***ended up being used*** in the final model, as through iterative testing, ***only the best performing features*** were selected.")
+        st.write("In this section, you will be able to see ***what transformations were made*** to the data in order to facilitate its understanding as well as to increase the model's predictive capability. In this sense, ***5 features were dropped, 5 features were kept, 9 features were transformed***, and ***26  new features were created***.  ***Not all the features*** that were created in this phase ***ended up being used*** in the final model, as through iterative testing, ***only the best performing features*** were selected.")
         
         st.write('In the table below, you can find a ***summary the new features*** with their ***definitions*** and indication of their ***status*** as per the first model run. If ***more detail*** is needed, the ***dropdown menu*** shows the ***code snippet*** for each transformation as well as the ***explanation for such transformation***.')
     

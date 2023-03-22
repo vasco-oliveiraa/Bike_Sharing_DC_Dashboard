@@ -10,6 +10,8 @@ def Prediction(display=True):
     st.title("🚲 Bike-Sharing in Washington D.C")
         
     st.header('🔮 Prediction')
+    
+    st.markdown("This section is intented to provide a real business application of the model.\n>Explore the different combinations of variables to output a predicted number of users in the hour of the day selected.
 
     col1, col2, col3 = st.columns(3)
 
@@ -248,14 +250,13 @@ def Prediction(display=True):
     
     data = pd.DataFrame(user_input, index=[0])
     
-    st.dataframe(data)
-    
     # Define the button
     if st.button('Predict'):
         # Predict the target value using the pre-trained model
         y_pred = Model(data)
 
         # Display the predicted target value
-        st.write('Predicted target value:', y_pred[0])
-    
+        st.write('Predicted target value:', round(y_pred[0],0))
+        st.caption("Note that the model is an examplary reproduction of the one developed using pycaret, serving mostly as a demonstration")
+        
         

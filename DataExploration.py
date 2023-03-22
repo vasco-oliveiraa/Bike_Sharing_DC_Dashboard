@@ -118,7 +118,7 @@ def DataExploration(display=True):
                 st.write(f"Number of Categorical Variables: {len(cat_variables)}")
                 st.write(f"Number of Numerical Variables: {len(num_variables)}")
                 
-            st.caption(f':bulb: Write Overall Dataset Insight here!!!')
+            st.caption(f':bulb: The dataset has a row for almost every hour of every day of the years of 2011 and 2012. There are some missing hours however.')
 
         DatasetAnalysis()
     

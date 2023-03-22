@@ -2,8 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from FeatureEngineering import FeatureEngineering
-# from catboost import CatBoostRegressor
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+from catboost import CatBoostRegressor
+from PIL import Image
+
 
 def ModelBuilding(display=True):
     
@@ -39,36 +40,30 @@ def ModelBuilding(display=True):
             
             st.markdown(" - `Temperature` \ `Temperature_Feel` are highly correlated, as expected. In the case for this model `Temperature` is taken as the relevant variable because it is more likely to impact the actions of the users, as they are likely to check the daily temperature before leaving to ride a bike. \n - `Total_Users` \ `Registered_Users` \ `Casual_Users` are also very correlated, as the `Total_Users` is a sum of the other two features. In this case, as the information provided is limited in aspects that could distinguish registered from casual users, the model will focus in predicting the total users, making these two features irrelevant. \n - Even though `Season` \ `Month`, `Is_Working_Day` \ `Weekday` and `Day_Period` \ `Hour` are strongly correlated, it would be interesting to understand to each extend is the granualarity of the provided information relevant, or if the model uses more general information to predict the target variable.")
         
-        st.subheader("3. Feature Engineering")
+        st.subheader("2. Feature Engineering")
         
         st.markdown("The next step is to apply all the decided transformations in the dataset that will be used for modeling, including the creation of new features. Refer to the Feature Engineering section to understand what was done regarding this")
         
-        st.subheader("2. Train\Test Split")
+        st.subheader("3. Train\Test Split")
         
         st.markdown("After applying all the relevant transformations to the data (which in this case is sensible to do before the train/test split due to their nature), it is important to immediatly split the available data into what is going to be used for training the model, and what is going to be used for testing its performance at the end of the process. \n Given the origin of this problem, it is sensible to split the data based on time, instead of a random split. The predictions this model has to provide will always be farther in the future than any data used in the training process. \n The cuttof was made at `2011-09-01`, allowing for 85% of the data to be used for testing, while 15% is kept for testing")
         
         st.code("data_unseen = data.loc[data['Date']>='2012-09-01'] \ndata = data.loc[data['Date']<'2012-09-01']")
             
-        st.subheader("3. Setup")
+        st.subheader("4. Setup")
 
         st.write("After exploring the data and running the feature engineering, the team ran Pycaret to help select and tune the most optimal model for our solution.The final model selected and used was a CatBoostRegressor which scored a 90% R2 & a RMSE of 68 on our test data. With this level of performance we were satisfied and put the model into production in our streamlit build.  All the action that takes place under-the-hood of pycaret is explained below.")
         
         
         st.code("model = setup(\n\t# Basic options\n\tdata = data,\n\ttarget = target[0],\n\ttrain_size = 0.8,\n\tcategorical_features = cat_cols,\n\tnumeric_features = num_cols,\n\tpreprocess = False,\n\tfold_strategy = 'kfold',\n\tfold = 10,\n\tdata_split_shuffle = True,\n\t# Feature Selection \n\tfeature_selection = True,\n\tfeature_selection_threshold = 0.1,\n\tfeature_selection_method = 'classic',\n\t# Paralellization options\n\tn_jobs = -1,\n\tuse_gpu = True,\n\t# Randomness Control\n\tsession_id = 123")
         
-        
-        
-        
-        
-        
-        
-        st.subheader("3. Optimization Target")    
+        st.subheader("4. Optimization Target")    
         
         st.write("The model selection was optimized to minimize RMSE (root mean squared error) as this was identified as the metric best used to evaluate the performance of a model for this particular case; we want to know the exact number of error in the most understandable way. The error in this case would be how many bikes away from the actual that our model is predicting, this will help all audiences understand the performance of our model.")
         
         st.code("model = compare_models(\n\tsort='RMSE',\n\tfold=10,\n\tn_select = 1)")
                  
-        st.subheader("Model Selection")   
+        st.subheader("5. Model Selection")   
         
         st.write("The team ran Pycaret to help select and tune the most optimal model for our solution. Pycaret runs and cross validates (in our case 10 folds) several different regression models ranging from Random Forest to Linear Regression to Catboost. In the end our three best models were Catboost, Extra Trees Regression and Random Forest Regression.")
         
@@ -110,7 +105,7 @@ def ModelBuilding(display=True):
                  
         st.write("Catboost is a gradient boosting algorithm that uses a combination of techniques to build an ensemble of decision trees. The performance of the model is evaluated using a loss function and the errors made are used to update the model. Once updated, another decision tree is then built and the process is repeated until a certain number of trees have been built or until the performance of the model stops improving. ")
                  
-        st.subheader("Hyperparameter Tuning")  
+        st.subheader("6. Hyperparameter Tuning")  
         
         st.write("Once we were satisfied with a particular model it was important to tune the hyperparameters to maximize the peformance of the model. Pycaret helps establish the most optimal model through a RandomSearchCV, which randomly goes through a list of hyperparameters, cross validates the results and then selects the optimal parameters. The parameters obtained here were then used in streamlit to replicate the Pycaret results. Let us run through some of the parameters selected:")
         
@@ -130,11 +125,7 @@ def ModelBuilding(display=True):
                  
         st.write("eta = 0.4: The learning rate used by the gradient boosting algorithm. This hyperparameter controls the step size used during each iteration of the algorithm. Increasing this hyperparameter can speed up training, but may also decrease model performance.")
 
-        
-                    
-        
-        
-        st.subheader("Evaluating on Test")  
+        st.subheader("7. Evaluating on Test")  
 
         st.write("The last step of the model building process is to predict on our test data and evaluate the performance of the fitted model. In our case our test data was the data we had split at the start of the process (all data after September 1,2012). It is important that our results do not different too much from what we obtained in our training data to ensure we do not have a problem of overfitting. In our case, the model performed similarly with a R2 of 90% on test compared to the 95% on train it was getting. While there may be some very slight overfitting, we were still content with the predictive power of the model.")
         
@@ -147,7 +138,13 @@ def ModelBuilding(display=True):
         
         st.dataframe(df_pred, use_container_width=True)
         
-        st.subheader('Results')
+        with st.expander('Feature Importance Plot', expanded=False):
+            
+            image = Image.open('feature_importance.png')
+
+            st.image(image, caption='Feature Importance')
+        
+        st.subheader('8. Results')
         st.write('This is the prediction on the unseen data')
         
         pred = pd.read_csv('prediction.csv')
@@ -178,10 +175,6 @@ def ModelBuilding(display=True):
         st.plotly_chart(pred_fig, use_container_width=True)
         
 
-        
-
-
-
 def Model(user_input):
 
     data = FeatureEngineering(display=False)['BasicFE']
@@ -198,11 +191,8 @@ def Model(user_input):
         'Weather_Condition'
     ]
 
-    ordinal_cols = {'Weather_Condition' : ['1','2','3']}
-
-    date_cols = ['Date']
-
     ignore_cols = [
+        'Date',
         'Hour',
         'Day',
         'Month',
@@ -213,7 +203,7 @@ def Model(user_input):
         'Casual_Users'
     ]
 
-    other_cols = cat_cols + date_cols + ignore_cols + target
+    other_cols = cat_cols + ignore_cols + target
 
     num_cols = [x for x in data.columns if x not in other_cols]
 
@@ -229,24 +219,24 @@ def Model(user_input):
     X_test = data_unseen[[*cat_cols,*num_cols]]
     y_test = data_unseen['Total_Users']
     
-#     CBR = CatBoostRegressor(
-#     depth = 8,
-#     l2_leaf_reg = 30,
-#     loss_function = 'RMSE',
-#     border_count = 254,
-#     verbose = False,
-#     random_strength = 0.2,
-#     task_type = 'CPU',
-#     n_estimators = 180,
-#     random_state = 123,
-#     eta = 0.4
-#     )
+    CBR = CatBoostRegressor(
+    depth = 8,
+    l2_leaf_reg = 30,
+    loss_function = 'RMSE',
+    border_count = 254,
+    verbose = False,
+    random_strength = 0.2,
+    task_type = 'CPU',
+    n_estimators = 180,
+    random_state = 123,
+    eta = 0.4
+    )
 
-#     CBR.fit(X_train,y_train)
+    CBR.fit(X_train,y_train)
 
-#     user_output = CBR.predict(user_input)
+    user_output = CBR.predict(user_input)
 
-#     return user_output  # add metrics_rf to return metrics
+    return user_output  # add metrics_rf to return metrics
 
     
     
