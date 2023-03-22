@@ -132,9 +132,9 @@ def FeatureEngineering(display=False):
         data['Min_Daily_Users'] = data.groupby(['Season','Weekday'])['Total_Users'].transform('min')
         data['Max_Daily_Users'] = data.groupby(['Season','Weekday'])['Total_Users'].transform('max')
 
-        data['Average_Daily_Users_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('mean')
-        data['Min_Daily_Users_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('min')
-        data['Max_Daily_Users_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('max')
+        data['Average_Daily_Temperature_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('mean')
+        data['Min_Daily_Temperature_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('min')
+        data['Max_Daily_Temperature_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('max')
 
         data['Average_Daily_Humidity_Season'] = data.groupby(['Season','Weekday'])['Humidity'].transform('mean')
         data['Min_Daily_Humidity_Season'] = data.groupby(['Season','Weekday'])['Humidity'].transform('min')
