@@ -195,24 +195,24 @@ def Model(user_input):
     X_test = data_unseen[[*cat_cols,*num_cols]]
     y_test = data_unseen['Total_Users']
     
-    # CBR = CatBoostRegressor(
-    # depth = 8,
-    # l2_leaf_reg = 30,
-    # loss_function = 'RMSE',
-    # border_count = 254,
-    # verbose = False,
-    # random_strength = 0.2,
-    # task_type = 'CPU',
-    # n_estimators = 180,
-    # random_state = 123,
-    # eta = 0.4
-    # )
+    CBR = CatBoostRegressor(
+    depth = 8,
+    l2_leaf_reg = 30,
+    loss_function = 'RMSE',
+    border_count = 254,
+    verbose = False,
+    random_strength = 0.2,
+    task_type = 'CPU',
+    n_estimators = 180,
+    random_state = 123,
+    eta = 0.4
+    )
 
-#     CBR.fit(X_train,y_train)
+    CBR.fit(X_train,y_train)
 
-#     user_output = CBR.predict(user_input)
+    user_output = CBR.predict(user_input)
 
-    # return user_output  # add metrics_rf to return metrics
+    return user_output  # add metrics_rf to return metrics
 
     
     

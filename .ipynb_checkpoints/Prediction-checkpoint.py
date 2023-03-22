@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-
 from ModelBuilding import Model
 
 def Prediction(display=True):
@@ -11,21 +10,6 @@ def Prediction(display=True):
     st.title("🚲 Bike-Sharing in Washington D.C")
         
     st.header('🔮 Prediction')
-    
-    def get_season(date):
-        # Extract month and day from the date
-        month = date.month
-        day = date.day
-
-        # Define season based on month and day
-        if (month == 12 and day >= 21) or (month == 1) or (month == 2) or (month == 3 and day < 20):
-            return 1
-        elif (month == 3 and day >= 20) or (month == 4) or (month == 5) or (month == 6 and day < 21):
-            return 2
-        elif (month == 6 and day >= 21) or (month == 7) or (month == 8) or (month == 9 and day < 22):
-            return 3
-        elif (month == 9 and day >= 22) or (month == 10) or (month == 11) or (month == 12 and day < 21):
-            return 4
 
     col1, col2, col3 = st.columns(3)
 
@@ -43,7 +27,7 @@ def Prediction(display=True):
 
         hour = st.selectbox(
             'Hour',
-            options = range(1,25)
+            options = range(0,24)
         )
 
     with col3:
@@ -99,6 +83,24 @@ def Prediction(display=True):
             step=1
         )
 
+    def get_season(date):
+        # Extract month and day from the date
+        month = date.month
+        day = date.day
+
+        # Define season based on month and day
+        if (month == 12 and day >= 21) or (month == 1) or (month == 2) or (month == 3 and day < 20):
+            return 1
+        elif (month == 3 and day >= 20) or (month == 4) or (month == 5) or (month == 6 and day < 21):
+            return 2
+        elif (month == 6 and day >= 21) or (month == 7) or (month == 8) or (month == 9 and day < 22):
+            return 3
+        elif (month == 9 and day >= 22) or (month == 10) or (month == 11) or (month == 12 and day < 21):
+            return 4
+        
+    season = get_season(date)
+    
+    year = date.year
 
     day = date.day
 
@@ -106,78 +108,142 @@ def Prediction(display=True):
 
     month = date.month
 
-    year = date.year
-
     weekday = date.weekday()+1
     
+    # Working Day
     if weekday in [6,7] or is_holiday == 1:
         is_working_day = 0
     else:
         is_working_day = 1
+        
+    # Day Period
+    if 0 <= hour < 6:
+        day_period = 1 # Twilight
+    elif 6 <= hour < 12:
+        day_period = 2 # Morning
+    elif 12 <= hour < 18:
+        day_period = 3 # Afternoon
+    elif 18 <= hour:
+        day_period = 4 # Night
+        
+    # Cos & Sin
+    cos_hour = np.cos(2*np.pi*hour/24)
+    
+    sin_hour = np.sin(2*np.pi*hour/24)
+    
+    cos_day = np.cos(2*np.pi*day/30)
+    
+    sin_day = np.sin(2*np.pi*day/30)
+    
+    cos_weekday = np.cos(2*np.pi*weekday/7)
+    
+    sin_weekday = np.sin(2*np.pi*weekday/7)
+    
+    cos_week = np.cos(2*np.pi*week/52)
+    
+    sin_week = np.sin(2*np.pi*week/52)
+    
+    cos_month = np.cos(2*np.pi*month/12)
+    
+    sin_month = np.sin(2*np.pi*month/12)
+    
+    # Weather Factor
+    weather_factor = temperature * humidity * wind_speed * 1/weather_condition
+    
+    reference_data = pd.read_csv('reference_data.csv')
+    
+    # Hourly Aggregates
+    
+    average_hourly_users = reference_data.loc[reference_data['Hour'] == hour, 'Average_Hourly_Users'].iloc[0]
+    min_hourly_users = reference_data.loc[reference_data['Hour'] == hour, 'Min_Hourly_Users'].iloc[0]
+    max_hourly_users = reference_data.loc[reference_data['Hour'] == hour, 'Max_Hourly_Users'].iloc[0]
+    
+    average_hourly_temperature_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Average_Hourly_Temperature_Season'].iloc[0]
+    min_hourly_temperature_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Min_Hourly_Temperature_Season'].iloc[0]
+    max_hourly_temperature_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Max_Hourly_Temperature_Season'].iloc[0]
+    
+    average_hourly_humidity_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Average_Hourly_Humidity_Season'].iloc[0]
+    min_hourly_humidity_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Min_Hourly_Humidity_Season'].iloc[0]
+    max_hourly_humidity_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Max_Hourly_Humidity_Season'].iloc[0]
+    
+    average_hourly_wind_speed_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Average_Hourly_Wind_Speed_Season'].iloc[0]
+    min_hourly_wind_speed_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Min_Hourly_Wind_Speed_Season'].iloc[0]
+    max_hourly_wind_speed_season = reference_data.loc[(reference_data['Hour'] == hour) & (reference_data['Season'] == season), 'Max_Hourly_Wind_Speed_Season'].iloc[0]
+    
+     # Daily Aggregates
+        
+    average_daily_users = reference_data.loc[reference_data['Day'] == day, 'Average_Daily_Users'].iloc[0]
+    min_daily_users = reference_data.loc[reference_data['Day'] == day, 'Min_Daily_Users'].iloc[0]
+    max_daily_users = reference_data.loc[reference_data['Day'] == day, 'Max_Daily_Users'].iloc[0]
 
-    season = get_season(date)
-
-    # user_input = {
-    #     'Date' : date,
-    #     'Season' : season,
-    #     'Year' : year,
-    #     'Month' : month,
-    #     'Hour' : hour,
-    #     'Is_Holiday' : is_holiday,
-    #     'Is_Working_Day' : is_working_day,
-    #     'Weekday' : weekday,
-    #     'Weather_Condition' : weather_condition,
-    #     'Temperature' : temperature,
-    #     'Humidity' : humidity,
-    #     'Wind_Speed' : wind_speed
-    # }
+    average_daily_temperature_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Average_Daily_Temperature_Season'].iloc[0]
+    min_daily_temperature_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Min_Daily_Temperature_Season'].iloc[0]
+    max_daily_temperature_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Max_Daily_Temperature_Season'].iloc[0]
+    
+    average_daily_humidity_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Average_Daily_Humidity_Season'].iloc[0]
+    min_daily_humidity_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Min_Daily_Humidity_Season'].iloc[0]
+    max_daily_humidity_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Max_Daily_Humidity_Season'].iloc[0]
+    
+    average_daily_wind_speed_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Average_Daily_Wind_Speed_Season'].iloc[0]
+    min_daily_wind_speed_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Min_Daily_Wind_Speed_Season'].iloc[0]
+    max_daily_wind_speed_season = reference_data.loc[(reference_data['Day'] == day) & (reference_data['Season'] == season), 'Max_Daily_Wind_Speed_Season'].iloc[0]
+    
     
     user_input = {
-        'Season': 4.0,
-         'Year': 2012.0,
-         'Day_Period': 3.0,
-         'Is_Holiday': 0.0,
-         'Is_Working_Day': 1.0,
-         'Weather_Condition': 1.0,
-         'Temperature': 18.86,
-         'Humidity': 41.0,
-         'Wind_Speed': 23.9994,
-         'Cos_Hour': -0.5000000000000004,
-         'Sin_Hour': -0.8660254037844385,
-         'Cos_Day': -0.8090169943749473,
-         'Sin_Day': 0.5877852522924732,
-         'Cos_Weekday': -0.2225209339563146,
-         'Sin_Weekday': -0.9749279121818236,
-         'Cos_Week': 0.23931566428755738,
-         'Sin_Week': -0.9709418174260521,
-         'Cos_Month': 0.5000000000000001,
-         'Sin_Month': -0.8660254037844386,
-         'Temperature/Feel_Factor': 1.204931071049841,
-         'Weather_Factor': 18557.776044000002,
-         'Average_Hourly_Users': 311.9835616438356,
-         'Min_Hourly_Users': 11.0,
-         'Max_Hourly_Users': 783.0,
-         'Average_Hourly_Temperature_Season': 19.907005649717515,
-         'Min_Hourly_Temperature_Season': 9.02,
-         'Max_Hourly_Temperature_Season': 30.34,
-         'Average_Hourly_Humidity_Season': 53.49152542372882,
-         'Min_Hourly_Humidity_Season': 16.0,
-         'Max_Hourly_Humidity_Season': 100.0,
-         'Average_Hourly_Wind_Speed_Season': 13.989032203389831,
-         'Min_Hourly_Wind_Speed_Season': 0.0,
-         'Max_Hourly_Wind_Speed_Season': 35.0008,
-         'Average_Daily_Users': 204.11166666666668,
-         'Min_Daily_Users': 1.0,
-         'Max_Daily_Users': 900.0,
-         'Average_Daily_Users_Season': 17.157133333333334,
-         'Min_Daily_Users_Season': 6.5600000000000005,
-         'Max_Daily_Users_Season': 30.34,
-         'Average_Daily_Humidity_Season': 63.266666666666666,
-         'Min_Daily_Humidity_Season': 28.999999999999996,
-         'Max_Daily_Humidity_Season': 100.0,
-         'Average_Daily_Wind_Speed_Season': 11.183751666666668,
-         'Min_Daily_Wind_Speed_Season': 0.0,
-         'Max_Daily_Wind_Speed_Season': 36.9974
+        'Season': season,
+        'Year': year,
+        'Is_Holiday': is_holiday,
+        'Is_Working_Day': is_working_day,
+        'Weather_Condition': weather_condition,
+        'Temperature': temperature,
+        'Humidity': humidity,
+        'Wind_Speed': wind_speed,
+        'Day_Period': day_period,
+        
+         'Cos_Hour': cos_hour,
+         'Sin_Hour': sin_hour,
+         'Cos_Day': cos_day,
+         'Sin_Day': sin_day,
+         'Cos_Weekday': cos_weekday,
+         'Sin_Weekday': sin_weekday,
+         'Cos_Week': cos_week,
+         'Sin_Week': sin_week,
+         'Cos_Month': cos_month,
+         'Sin_Month': sin_month,
+        
+         'Weather_Factor': weather_factor,
+        
+         'Average_Hourly_Users': average_hourly_users,
+         'Min_Hourly_Users': min_hourly_users,
+         'Max_Hourly_Users': max_hourly_users,
+        
+         'Average_Hourly_Temperature_Season': average_hourly_temperature_season,
+         'Min_Hourly_Temperature_Season': min_hourly_temperature_season,
+         'Max_Hourly_Temperature_Season': max_hourly_temperature_season,
+        
+         'Average_Hourly_Humidity_Season': average_hourly_humidity_season,
+         'Min_Hourly_Humidity_Season': min_hourly_humidity_season,
+         'Max_Hourly_Humidity_Season': max_hourly_humidity_season,
+        
+         'Average_Hourly_Wind_Speed_Season': average_hourly_wind_speed_season,
+         'Min_Hourly_Wind_Speed_Season': min_hourly_wind_speed_season,
+         'Max_Hourly_Wind_Speed_Season': max_hourly_wind_speed_season,
+        
+         'Average_Daily_Users': average_daily_users,
+         'Min_Daily_Users': min_daily_users,
+         'Max_Daily_Users': max_daily_users,
+        
+         'Average_Daily_Temperature_Season': average_daily_temperature_season,
+         'Min_Daily_Temperature_Season': min_daily_temperature_season,
+         'Max_Daily_Temperature_Season': max_daily_temperature_season,
+        
+         'Average_Daily_Humidity_Season': average_daily_humidity_season,
+         'Min_Daily_Humidity_Season': min_daily_humidity_season,
+         'Max_Daily_Humidity_Season': max_daily_humidity_season,
+        
+         'Average_Daily_Wind_Speed_Season': average_daily_wind_speed_season,
+         'Min_Daily_Wind_Speed_Season': min_daily_wind_speed_season,
+         'Max_Daily_Wind_Speed_Season': max_daily_wind_speed_season
     }
     
     data = pd.DataFrame(user_input, index=[0])

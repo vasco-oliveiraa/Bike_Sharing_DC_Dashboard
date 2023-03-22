@@ -381,7 +381,7 @@ def DataExploration(display=True):
     
     st.subheader("Analysis")
 
-    st.markdown("After understanding how the dataset behaves and finding different relations between features, we can analyze how the bike-sharing service currently works. To begin with, the overall use of the service is low. With this in mind, the peak hours in which the service is used are 8:00 and between 17:00 and 18:00 which could be related to high commuting. Also, the usage rate is impacted by the seasons but in general, it is higher on weekdays than on holidays or weekends.")
+    st.markdown("After `understanding` how the dataset behaves and finding different relations between features, we can analyze how the bike-sharing service currently works. To begin with, the overall use of the service is low. With this in mind, the peak hours in which the service is used are 8:00 and between 17:00 and 18:00 which could be related to high commuting. Also, the usage rate is impacted by the seasons but in general, it is higher on weekdays than on holidays or weekends.")
     
     st.markdown("On the other hand, and as expected, the average usage of the bike-sharing service is higher when the weather conditions are sunny/misty/cloudy rather than when it includes rain or snow. In this sense, the outside temperature and the feeling temperature have a relation with the bike-sharing service whereas it decreases, the usage decreases, and vice versa. Finally, as humidity increases the usage of bikes decreases. All previously mentioned can be related to the weather conditions meaning that when there is rain or snow there is more humidity and lower temperatures, hence the bike-sharing service lowers.")
     

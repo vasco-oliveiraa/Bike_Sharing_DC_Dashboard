@@ -108,7 +108,6 @@ def FeatureEngineering(display=False):
             lambda x: np.sin(2*np.pi*x/12)
         )
 
-        data['Temperature/Feel_Factor'] = data['Temperature_Feel'] / abs(data['Temperature'])
         data ['Weather_Factor'] = data['Temperature'] * data['Humidity'] * data['Wind_Speed'] * 1/data['Weather_Condition']
 
         # Hourly
@@ -164,7 +163,7 @@ def FeatureEngineering(display=False):
             ('Is_Working_Day', '1 if neither holiday nor weekend, 0 otherwise','Kept'),
             ('Weather_Condition', '1 = Clear/Few Clouds, 2 = Cloudy/Mist  3 = Rain/Thunderstorm','Kept'),
             ('Temperature', 'Temperature in Celsius','Transformed'),
-            ('Temperature_Feel', 'Temperature Feel in Celsius','Transformed'),
+            ('Temperature_Feel', 'Temperature Feel in Celsius','Dropped'),
             ('Humidity', 'Humidity %', 'Transformed'),
             ('Wind_Speed', 'Wind Speed in km/h', 'Transformed'),
             ('Casual_Users', 'Number of Casual Users', 'Dropped'),
@@ -187,9 +186,9 @@ def FeatureEngineering(display=False):
             ('Average_Daily_Users', 'Average daily users by season and weekday', 'New Feature'),
             ('Min_Daily_Users', 'Minimum daily users by season and weekday', 'New Feature'),
             ('Max_Daily_Users', 'Maximum daily users by season and weekday', 'New Feature'),
-            ('Average_Daily_Users_Season', 'Average temperature by season and weekday', 'New Feature'),
-            ('Min_Daily_Users_Season', 'Minimum temperature by season and weekday', 'New Feature'),
-            ('Max_Daily_Users_Season', 'Maximum temperature by season and weekday', 'New Feature'),
+            ('Average_Daily_Temperature_Season', 'Average temperature by season and weekday', 'New Feature'),
+            ('Min_Daily_Temperature_Season', 'Minimum temperature by season and weekday', 'New Feature'),
+            ('Max_Daily_Temperature_Season', 'Maximum temperature by season and weekday', 'New Feature'),
             ('Average_Daily_Humidity_Season', 'Average humidity by season and weekday', 'New Feature'),
             ('Min_Daily_Humidity_Season', 'Minimum humidity by season and weekday', 'New Feature'),
             ('Max_Daily_Humidity_Season', 'Maximum humidity by season and weekday', 'New Feature'),
@@ -214,7 +213,6 @@ def FeatureEngineering(display=False):
             'Weekday' : "data['Cos_Weekday'] = data['Weekday'].map(lambda x: np.cos(2*np.pi*x/7))\n"
             "data['Sin_Weekday'] = data['Weekday'].map(lambda x: np.sin(2*np.pi*x/7)",
             'Temperature' : "data['Temperature'] *= 41",
-            'Temperature_Feel' : "data['Temperature_Feel] *= 51",
             'Humidity' : "data['Humidity'] *= 100",
             'Wind_Speed' : "data['Wind_Speed'] *= 67",
             'Temperature/Feel_Factor' : "data['Temperature_Feel'] / abs(data['Temperature']",
@@ -234,9 +232,9 @@ def FeatureEngineering(display=False):
             'Average_Daily_Users' : "data['Average_Daily_Users'] = data.groupby(['Season','Weekday'])['Total_Users'].transform('mean')",
             'Min_Daily_Users' : "data['Min_Daily_Users'] = data.groupby(['Season','Weekday'])['Total_Users'].transform('min')",
             'Max_Daily_Users' : "data['Max_Daily_Users'] = data.groupby(['Season','Weekday'])['Total_Users'].transform('max')",
-            'Average_Daily_Users_Season' : "data['Average_Daily_Users_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('mean')",
-            'Min_Daily_Users_Season' : "data['Min_Daily_Users_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('min')",
-        'Max_Daily_Users_Season' : "data['Max_Daily_Users_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('max')",
+            'Average_Daily_Temperature_Season' : "data['Average_Daily_Temperature_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('mean')",
+            'Min_Daily_Temperature_Season' : "data['Min_Daily_Temperature_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('min')",
+        'Max_Daily_Temperature_Season' : "data['Max_Daily_Temperature_Season'] = data.groupby(['Season','Weekday'])['Temperature'].transform('max')",
             'Average_Daily_Humidity_Season' :"data['Average_Daily_Humidity_Season'] = data.groupby(['Season','Weekday'])['Humidity'].transform('mean')",
             'Min_Daily_Humidity_Season' : "data['Min_Daily_Humidity_Season'] = data.groupby(['Season','Weekday'])['Humidity'].transform('min')",
             'Max_Daily_Humidity_Season' : "data['Max_Daily_Humidity_Season'] = data.groupby(['Season','Weekday'])['Humidity'].transform('max')",
