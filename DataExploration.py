@@ -35,10 +35,15 @@ def DataExploration(display=True):
 
     st.header("🔎 Data Exploration")
 
-    st.subheader("This is a subheader")
+    st.subheader("Overview")
 
-    st.markdown("This is a **markdown** text")
+    st.markdown("Data exploration is a critical step in the predictive model-building process as it lays the foundation for the development of the best and most effective model. The main objective of data exploration is to gain a better understanding of the data and its underlying patterns, relationships, and characteristics. Likewise, data exploration helps uncover important features and trends that improve model development and decision-making.")
     
+    st.markdown("In this section, you will be able to see what data exploration was made and get an initial idea of the possible transformations that need to be performed for the modeling process. In this sense, the dataset is composed of 17 different features and 17379 rows. Likewise, there are no null values in the dataset which makes it accurate and easier to deal with.")
+    
+    st.markdown("On the other hand, understanding the distribution of the variables and the relationship between them is essential now that it will make it easier to identify potential issues. Based on this, some features have a categorical data type, but instead, they should have a numerical one. Also, some features are right skewed like  Casual_Users, Registered_Users, Total_Users, and Wind Speed.")
+    
+    st.markdown("In the table below, you can see dataset information where you will find a description of each of the features. Also, you will find a descriptive summary of the dataset as a whole and of each feature independently. Finally, you will be able to see the users' distribution by categorical or time dimensions, or a mix of both.")
     
     tab1, tab2, tab3 = st.tabs(['Dataset Information','Dataset Analysis','Variable Analysis'])
     
@@ -374,4 +379,10 @@ def DataExploration(display=True):
 
     TimeDistribution()
     
-# DataExploration() # Delete when trying app navigation
+    st.subheader("Analysis")
+
+    st.markdown("After understanding how the dataset behaves and finding different relations between features, we can analyze how the bike-sharing service currently works. To begin with, the overall use of the service is low. With this in mind, the peak hours in which the service is used are 8:00 and between 17:00 and 18:00 which could be related to high commuting. Also, the usage rate is impacted by the seasons but in general, it is higher on weekdays than on holidays or weekends.")
+    
+    st.markdown("On the other hand, and as expected, the average usage of the bike-sharing service is higher when the weather conditions are sunny/misty/cloudy rather than when it includes rain or snow. In this sense, the outside temperature and the feeling temperature have a relation with the bike-sharing service whereas it decreases, the usage decreases, and vice versa. Finally, as humidity increases the usage of bikes decreases. All previously mentioned can be related to the weather conditions meaning that when there is rain or snow there is more humidity and lower temperatures, hence the bike-sharing service lowers.")
+    
+    st.markdown("With this in mind, some recommendations based on the actual behavior could be that bike provisions should be higher during the weekdays. Similarly, from June to September, hence summer, could be the best months to also increase the bike provisions. On the other hand, some promotions could be established for example during the weekends/holidays or when the weather conditions aren’t good. The previous aimed to increase the usage of the bike-sharing service and lower the costs.")
