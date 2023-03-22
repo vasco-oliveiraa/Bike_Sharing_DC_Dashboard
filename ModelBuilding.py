@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from FeatureEngineering import FeatureEngineering
-# from catboost import CatBoostRegressor
+from catboost import CatBoostRegressor
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 
 def ModelBuilding(display=True):
