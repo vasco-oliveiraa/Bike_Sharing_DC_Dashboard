@@ -11,7 +11,7 @@ def Prediction(display=True):
         
     st.header('🔮 Prediction')
     
-    st.markdown("This section is intented to provide a real business application of the model.\n>Explore the different combinations of variables to output a predicted number of users in the hour of the day selected.
+    st.markdown("This section is intented to provide a real business application of the model.\n>Explore the different combinations of variables to output a predicted number of users in the hour of the day selected.")
 
     col1, col2, col3 = st.columns(3)
 
