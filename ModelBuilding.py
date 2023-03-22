@@ -183,11 +183,12 @@ def Model(user_input):
     other_cols = cat_cols + date_cols + ignore_cols + target
 
     num_cols = [x for x in data.columns if x not in other_cols]
-    
-    data.drop(columns=ignore_cols,inplace=True)
 
     data_unseen = data.loc[data['Date']>='2012-09-01']
     data = data.loc[data['Date']<'2012-09-01']
+    
+    data.drop(columns=ignore_cols,inplace=True)
+    data_unseen.drop(columns=ignore_cols,inplace=True)
 
     X_train = data[[*cat_cols,*num_cols]]
     y_train = data['Total_Users']
