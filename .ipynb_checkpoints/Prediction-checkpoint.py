@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from ModelBuilding import RF_Model
+from ModelBuilding import Model
 
 def Prediction(display=True):
     
