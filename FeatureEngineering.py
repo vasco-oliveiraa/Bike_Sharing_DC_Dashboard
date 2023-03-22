@@ -294,11 +294,11 @@ def FeatureEngineering(display=False):
         
         st.header('🛠️ Feature Engineering')
 
-        st.write("In this section, you can learn what transformation were made to the data in order to faciltate its understanding as well as to increase the model's predictive capability")
+        st.write("Feature engineering is an ***essential*** part of the predictive model-building process  that involves ***transforming raw data into meaningful features*** for model training. It helps to ***improve model accuracy, reduce overfitting, and incorporate domain knowledge*** into the model building process. Through techniques such as data cleaning, dimensionality reduction, and feature selection, feature engineering ***enables the extraction of relevant information*** from complex datasets.") 
+
+        st.write("In this section, you will be able to see ***what transformations were made*** to the data in order to facilitate its understanding as well as to increase the model's predictive capability. In this sense, ***4 features were dropped, 5 features were kept, 10 features were transformed***, and ***26  new features were created***.  ***Not all the features*** that were created in this phase ***ended up being used*** in the final model, as through iterative testing, ***only the best performing features*** were selected.")
         
-        st.write('Not all the features that were created in this phase ended up being used in the final model, as through iterative testing, only the best performing features were selected.')
-        
-        st.write('The table below summarizes the new features, their definitions and indication of their status as per the first model run. To view the code snippet for each transformation as well as the explanation for such transformation, click the variable in the dropdown')
+        st.write('In the table below, you can find a ***summary the new features*** with their ***definitions*** and indication of their ***status*** as per the first model run. If ***more detail*** is needed, the ***dropdown menu*** shows the ***code snippet*** for each transformation as well as the ***explanation for such transformation***.')
     
         NewFeatures()
 
