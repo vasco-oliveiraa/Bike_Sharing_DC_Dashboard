@@ -192,13 +192,13 @@ def Prediction(display=True):
     user_input = {
         'Season': season,
         'Year': year,
+        'Day_Period': day_period,
         'Is_Holiday': is_holiday,
         'Is_Working_Day': is_working_day,
         'Weather_Condition': weather_condition,
         'Temperature': temperature,
         'Humidity': humidity,
         'Wind_Speed': wind_speed,
-        'Day_Period': day_period,
         
          'Cos_Hour': cos_hour,
          'Sin_Hour': sin_hour,
