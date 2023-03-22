@@ -76,7 +76,7 @@ def Model(user_input):
     CBR = CatBoostRegressor(
     depth = 8,
     l2_leaf_reg = 30,
-    loss_function = RMSE,
+    loss_function = 'RMSE',
     border_count = 254,
     verbose = False,
     random_strength = 0.2,
