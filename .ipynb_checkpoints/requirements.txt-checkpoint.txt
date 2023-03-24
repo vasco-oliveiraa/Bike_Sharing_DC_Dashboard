@@ -1,6 +1,0 @@
-pycaret
-streamlit
-pandas
-numpy
-plotly
-pycaret

@@ -1,7 +1,0 @@
-streamlit
-pandas
-numpy
-plotly
-datetime
-scikit-learn
-catboost
