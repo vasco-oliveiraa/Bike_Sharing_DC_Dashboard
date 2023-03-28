@@ -1,4 +1,4 @@
-# Washington DC Bike Dataset Analysis and Prediction Application
+# 🚲 Washington DC Bike Dataset Analysis and Prediction Application
 
 This is a Streamlit application that allows users to explore the Washington DC Bike Dataset and showcases the modeling process for predicting the number of users per hour on a given day. The app includes two main sections: exploratory data analysis (EDA) and predictive modeling.
 
